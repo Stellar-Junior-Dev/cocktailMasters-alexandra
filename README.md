@@ -1,4 +1,4 @@
-# CocktailMasers
+# CocktailMasters
 
 ### [Figma design file](https://www.figma.com/file/l39DoaH9N5IRyP7mmnLJPp/Cocktail-Project?node-id=1%3A3&t=LlWPSEOL3dfhfGW4-1)
 
