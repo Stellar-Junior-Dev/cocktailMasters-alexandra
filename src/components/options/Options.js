@@ -2,9 +2,8 @@ import "./options.css";
 import x from "../../img/x.svg"
 import copyright from "../../img/copyright.svg"
 export function Options(){
+    
     return(
-
-
             <div class="background">
                 <div class="overlay">
                 <div class="close">
@@ -28,9 +27,6 @@ export function Options(){
 
                 </div>
             </div>
-
-
-
 
     );
 }

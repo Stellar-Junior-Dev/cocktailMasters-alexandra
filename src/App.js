@@ -3,12 +3,14 @@ import menu from './img/menu.svg';
 import './App.css';
 import { Category } from './components/category/Category';
 import { Options } from './components/options/Options';
+import {Search} from './components/search/Search'
 
 
 function App() {
   return (
     <div>
-      <Options/>
+      {/* <Options/> */}
+      <Search/> 
 
     <div class="details">
     <a class="search">

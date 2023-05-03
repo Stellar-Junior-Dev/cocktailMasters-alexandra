@@ -1,0 +1,30 @@
+
+.search-background{
+    bottom:0;
+    position:fixed;
+    z-index: 1;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.search-content{
+    border-radius: 16px 16px 0px 0px;
+    bottom: 0;
+    width: 393px;
+    height: 772px;
+    position: fixed;
+    z-index: 1;
+    background: #FFF4EC;
+}
+
+.search-title{
+    margin-top: 47px;
+    margin-left: 24px;
+}
+
+.search-title>h2{
+    font-size: 40px;
+    line-height: 54px;
+    color: #C98686;
+}
