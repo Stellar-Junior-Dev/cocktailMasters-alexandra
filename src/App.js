@@ -1,10 +1,15 @@
 import search from './img/search.svg';
 import menu from './img/menu.svg';
 import './App.css';
+import { Category } from './components/category/Category';
+import { Options } from './components/options/Options';
+
 
 function App() {
   return (
     <div>
+      <Options/>
+
     <div class="details">
     <a class="search">
         <img src={search}/>
@@ -19,27 +24,10 @@ function App() {
 </div>
 
 <div class="content">
+  <Category categoryTitle="POPULAR DRINKS"/>
+  <Category categoryTitle="LATEST DRINKS"/>
+  <Category categoryTitle="RANDOM DRINKS"/>
 
-
-
-<div class="popular">
-<div class="category">
-  <h2>POPULAR DRINKS</h2>
-</div>
-</div>
-
-<div class="latest">
-<div class="category">
-  <h2>LATEST DRINKS</h2>
-</div>
-</div>
-
-
-<div class="random">
-<div class="category">
-  <h2>RANDOM DRINKS</h2>
-</div>
-</div>
 
 </div>
 

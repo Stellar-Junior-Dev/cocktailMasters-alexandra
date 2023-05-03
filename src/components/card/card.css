@@ -1,0 +1,66 @@
+.card{
+
+    margin: 24px;
+    height: 212px;
+    width: 212px;
+    background-color: blueviolet;
+    flex-shrink: 0;
+    background-image: url("../../img/cocktail.jpeg");
+    background-size: cover;
+    position: relative;
+    border-radius: 8px;
+}
+
+.drink{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    height:44px;
+    width: 212px;
+    background: rgba(150, 107, 157, 0.8);
+    bottom: 0;
+    border-bottom-left-radius: inherit;
+    border-bottom-right-radius: inherit;
+}
+
+.drink>h1{
+    margin:auto;
+    font-size: 16px;
+    line-height: 22px;
+    text-align: center;
+    color: #FFF4EC;
+    
+}
+
+.heart-container{
+    position: relative;
+    width: 26px;
+    height: 26px;
+    left: 180px;
+    top: 12px;  
+    background: rgba(150, 107, 157, 0.8);
+    border-radius: 20px;
+}
+
+.heart{
+    position:absolute;
+    left: 12.52%;
+    right: 12.58%;
+    top: 14.14%;
+    bottom: 14.15%;
+    margin:auto;
+    height:11.98px;
+    width: 11.98px;
+}
+
+.heart-filler{
+    position: absolute;
+    left: 31.25%;
+    right: 31.25%;
+    top: 31.25%;
+    bottom: 31.25%;
+    height: 6px;
+    width: 6px;
+    z-index: 1;
+}
+

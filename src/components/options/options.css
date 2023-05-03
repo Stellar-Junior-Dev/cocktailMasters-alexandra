@@ -1,0 +1,52 @@
+.background{
+    top:0;
+    position:fixed;
+    z-index: 1;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+
+.overlay{
+    position: fixed;
+    width: 315px;
+    height:100vh;
+    background: #FFF4EC;
+    z-index: 1;
+    left: 80px;
+    top: 0px;
+}
+
+.opt{
+    height: 300px;
+    margin-top: 85px;
+}
+
+h1{
+    font-size: 24px;
+    line-height: 33px;
+    text-align: right;
+    color: #C98686;
+    opacity: 0.65;
+    margin-right: 24px;
+    
+}
+
+.close{
+    float: right;
+    margin-top: 24px;
+    margin-right: 24px;
+}
+
+.copyright{
+    width:inherit;
+    position: fixed;
+    bottom:24px;
+    
+}
+.image{
+    display: flex;
+    justify-content: center;
+}
+
