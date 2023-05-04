@@ -1,0 +1,15 @@
+.search > img {
+  height: 24px;
+  width: 24px;
+}
+.menu > img {
+  height: 24px;
+  width: 24px;
+}
+.details {
+  margin-right: 20px;
+  float: right;
+  width: 90px;
+  display: flex;
+  justify-content: space-evenly;
+}

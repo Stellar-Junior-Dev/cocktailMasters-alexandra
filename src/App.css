@@ -1,22 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@900&display=swap");
 
-
-body{
-
+body {
   position: relative;
   width: 393px;
   height: 852px;
   overflow-y: scroll;
-  font-family: 'Noto Sans', sans-serif;
-  background: #FFF4EC;
+  font-family: "Noto Sans", sans-serif;
+  background: #fff4ec;
 }
 
-
-.title{
-width: 202px;
-height: 108px;
-margin-left: 24px;
-margin-top: 48px;
+.title {
+  width: 202px;
+  height: 108px;
+  margin-left: 24px;
+  margin-top: 48px;
 }
 
 .title > h2 {
@@ -25,24 +22,10 @@ margin-top: 48px;
   color: #c98686;
 }
 
-.details{
-  margin-right: 20px;;
-  float:right;
-  width:90px;
+.details {
+  margin-right: 20px;
+  float: right;
+  width: 90px;
   display: flex;
-  justify-content:space-evenly;
+  justify-content: space-evenly;
 }
-
-.search>img{
-  height:24px;
-  width: 24px;
-  
-}
-
-.menu>img{
-  height: 24px;
-  width: 24px;
-}
-
-
-
