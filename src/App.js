@@ -9,9 +9,7 @@ function App() {
     <div>
       <Search open={false} />
       <Options open={false} />
-      <div class="details">
-        <Controls />
-      </div>
+      <Controls />
       <div class="title">
         <h2>COCKTAIL MASTER</h2>
       </div>

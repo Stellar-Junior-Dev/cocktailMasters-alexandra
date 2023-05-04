@@ -20,16 +20,16 @@ export function Search(open) {
             <h2>SEARCH</h2>
           </div>
           <div class="form-div>">
-            <form>
-              <label for="search"></label>
+            <form class="search-form">
               <input
+                class="search-input"
                 type="text"
                 id="search"
                 name="search"
                 placeholder="TYPE HERE"
               />
               <a class="submit-btn" type="submit">
-                <img src={search}></img>
+                <img src={search} />
               </a>
             </form>
           </div>
@@ -40,7 +40,7 @@ export function Search(open) {
             </div>
 
             <div class="results-content">
-              <img src={noresults}></img>
+              <img src={noresults} />
             </div>
           </div>
         </div>

@@ -13,7 +13,7 @@ export function Controls() {
     searchBackground.classList.remove("hide-search");
   }
   return (
-    <>
+    <div class="details">
       <a class="menu">
         <img onClick={showOptions} src={menu} />
       </a>
@@ -21,6 +21,6 @@ export function Controls() {
       <a class="search" onClick={showSearch}>
         <img src={search} />
       </a>
-    </>
+    </div>
   );
 }
