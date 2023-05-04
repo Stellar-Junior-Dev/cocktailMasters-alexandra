@@ -28,7 +28,8 @@
   .catTitle>h1{
     height: 22px;
     font-size: 16px;
-  color: #c98686;
+    color: #c98686;
+    text-align: left;
   }
   
   .cardContainer{
