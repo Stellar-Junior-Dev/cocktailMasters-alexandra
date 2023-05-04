@@ -13,7 +13,7 @@ export function Options(open) {
       <div class={`options-background ${open ? "hide-options" : ""}`}>
         <div class="overlay">
           <div class="close" onClick={hideOptions}>
-            <img src={x}></img>
+            <img src={x} alt="Close icon" />
           </div>
           <div class="opt">
             <h1>HOME</h1>
@@ -24,8 +24,8 @@ export function Options(open) {
           </div>
 
           <div class="copyright">
-            <div class="image">
-              <img src={copyright}></img>
+            <div class="copyright-image">
+              <img src={copyright} alt="Copyright details" />
             </div>
           </div>
         </div>

@@ -13,7 +13,7 @@ export function Search(open) {
       <div class={`search-background ${open ? "hide-search" : ""}`}>
         <div class="search-content">
           <div class="close" onClick={hideSearch}>
-            <img src={x}></img>
+            <img src={x} alt="Close icon"></img>
           </div>
 
           <div class="search-title">
@@ -29,7 +29,7 @@ export function Search(open) {
                 placeholder="TYPE HERE"
               />
               <a class="submit-btn" type="submit">
-                <img src={search} />
+                <img src={search} alt="Search icon" />
               </a>
             </form>
           </div>
@@ -40,7 +40,7 @@ export function Search(open) {
             </div>
 
             <div class="results-content">
-              <img src={noresults} />
+              <img src={noresults} alt="No results" />
             </div>
           </div>
         </div>
