@@ -1,8 +1,8 @@
 import "./controls.css";
 import menu from "../../img/menu.svg";
 import search from "../../img/search.svg";
+import { Options } from "../options/Options";
 import { Search } from "../Search/Search";
-import { Options } from "../Options/Options";
 import { useState } from "react";
 
 export function Controls() {
@@ -15,7 +15,7 @@ export function Controls() {
         onClick={() => {
           toggleOptions(true);
         }}
-        className={"menu"}
+        class={"menu"}
       >
         <img src={menu} />
       </div>

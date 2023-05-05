@@ -1,8 +1,36 @@
+import { Route } from "react-router-dom";
 import "./App.css";
 import { Category } from "./components/category/Category";
 import { Controls } from "./components/controls/Controls";
+import cocktailData from "./data/cocktailData";
+import {
+  createBrowserRouter,
+  RouterProvider,
+  useLocation,
+} from "react-router-dom";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <HomePage />,
+  },
+  {
+    path: "/cocktail/:cocktailName",
+    element: <DetailsPage />,
+  },
+]);
 
 function App() {
+  return <RouterProvider router={router} />;
+}
+
+function DetailsPage() {
+  const location = useLocation();
+  const name = location.state.name;
+  return <p>{name}</p>;
+}
+
+function HomePage() {
   return (
     <div>
       <Controls />
@@ -11,9 +39,13 @@ function App() {
       </div>
 
       <div class="content">
-        <Category categoryTitle="POPULAR DRINKS" />
-        <Category categoryTitle="LATEST DRINKS" />
-        <Category categoryTitle="RANDOM DRINKS" />
+        {cocktailData.map((category) => (
+          <Category
+            categoryTitle={"POPULAR DRINKS"}
+            cocktails={category.cocktails}
+            key={category.id}
+          />
+        ))}
       </div>
     </div>
   );
