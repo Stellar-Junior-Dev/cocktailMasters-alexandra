@@ -1,11 +1,12 @@
 .options-background {
-  top: 0;
-  position: fixed;
+  top: -48px;
+  position: absolute;
   z-index: 1;
+  left: 0;
   width: 100vw;
   height: 100vh;
+  pointer-events: none;
   background-color: rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease-out;
 }
 
 .overlay {
@@ -14,8 +15,10 @@
   height: 100vh;
   background: #fff4ec;
   z-index: 1;
-  left: 80px;
+  right: 0;
   top: 0px;
+  transition: all 0.3s ease-out;
+  pointer-events: all;
 }
 
 .opt {
@@ -47,8 +50,10 @@ h1 {
   display: flex;
   justify-content: center;
 }
+.options-background.hide-options {
+  background-color: transparent;
+}
 
-.hide-options {
-  transform: translateX(100%);
-  opacity: 0;
+.hide-options .overlay {
+  transform: translateX(100vw);
 }

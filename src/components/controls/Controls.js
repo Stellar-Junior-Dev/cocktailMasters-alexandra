@@ -1,26 +1,35 @@
 import "./controls.css";
 import menu from "../../img/menu.svg";
 import search from "../../img/search.svg";
+import { Search } from "../Search/Search";
+import { Options } from "../Options/Options";
+import { useState } from "react";
 
 export function Controls() {
-  function showOptions() {
-    const searchBackground = document.querySelector(".options-background");
-    searchBackground.classList.remove("hide-options");
-  }
+  const [optionsOpen, toggleOptions] = useState(false);
+  const [searchOpen, toggleSearch] = useState(false);
 
-  function showSearch() {
-    const searchBackground = document.querySelector(".search-background");
-    searchBackground.classList.remove("hide-search");
-  }
   return (
-    <div class="details">
-      <a class="menu">
-        <img onClick={showOptions} src={menu} />
-      </a>
+    <div className="details">
+      <div
+        onClick={() => {
+          toggleOptions(true);
+        }}
+        className={"menu"}
+      >
+        <img src={menu} />
+      </div>
 
-      <a class="search" onClick={showSearch}>
+      <div
+        onClick={() => {
+          toggleSearch(true);
+        }}
+        className={"menu"}
+      >
         <img src={search} />
-      </a>
+      </div>
+      <Search toggleOpen={toggleSearch} open={searchOpen} />
+      <Options toggleOpen={toggleOptions} open={optionsOpen} />
     </div>
   );
 }
