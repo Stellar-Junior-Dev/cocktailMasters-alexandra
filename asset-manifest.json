@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/cocktailmasters-alexandra/static/css/main.4f073f07.css",
-    "main.js": "/cocktailmasters-alexandra/static/js/main.891edbb2.js",
+    "main.js": "/cocktailmasters-alexandra/static/js/main.b130a13c.js",
     "static/js/787.8ad68912.chunk.js": "/cocktailmasters-alexandra/static/js/787.8ad68912.chunk.js",
     "static/media/old-fashioned.jpeg": "/cocktailmasters-alexandra/static/media/old-fashioned.713750637d5cd184d3af.jpeg",
     "static/media/cocktail.jpeg": "/cocktailmasters-alexandra/static/media/cocktail.9d44d2da07da6745ee88.jpeg",
@@ -13,11 +13,11 @@
     "static/media/menu.svg": "/cocktailmasters-alexandra/static/media/menu.cf47aeae16d7519f5576a6293562252a.svg",
     "static/media/x.svg": "/cocktailmasters-alexandra/static/media/x.ef38ae7fc27055894fecc2791b643ac9.svg",
     "main.4f073f07.css.map": "/cocktailmasters-alexandra/static/css/main.4f073f07.css.map",
-    "main.891edbb2.js.map": "/cocktailmasters-alexandra/static/js/main.891edbb2.js.map",
+    "main.b130a13c.js.map": "/cocktailmasters-alexandra/static/js/main.b130a13c.js.map",
     "787.8ad68912.chunk.js.map": "/cocktailmasters-alexandra/static/js/787.8ad68912.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.4f073f07.css",
-    "static/js/main.891edbb2.js"
+    "static/js/main.b130a13c.js"
   ]
 }
