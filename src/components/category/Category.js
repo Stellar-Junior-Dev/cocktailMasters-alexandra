@@ -16,11 +16,7 @@ export function Category({ categoryTitle, cocktails }) {
 
         <div class="cardContainer">
           {cocktails.map((cocktail) => (
-            <Card
-              key={cocktail.id}
-              image={cocktail.image}
-              name={cocktail.name}
-            />
+            <Card key={cocktail.id} cocktail={cocktail} />
           ))}
         </div>
       </div>
