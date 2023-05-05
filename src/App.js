@@ -4,12 +4,12 @@ import { Category } from "./components/category/Category";
 import { Controls } from "./components/controls/Controls";
 import cocktailData from "./data/cocktailData";
 import {
-  createBrowserRouter,
+  createHashRouter,
   RouterProvider,
   useLocation,
 } from "react-router-dom";
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path: "/",
     element: <HomePage />,
