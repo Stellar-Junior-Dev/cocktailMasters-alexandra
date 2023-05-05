@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/gitname/react-gh-pages/static/css/main.67005d7c.css",
-    "main.js": "/gitname/react-gh-pages/static/js/main.a924733e.js",
+    "main.css": "/gitname/react-gh-pages/static/css/main.4f073f07.css",
+    "main.js": "/gitname/react-gh-pages/static/js/main.be2b501f.js",
     "static/js/787.8ad68912.chunk.js": "/gitname/react-gh-pages/static/js/787.8ad68912.chunk.js",
+    "static/media/old-fashioned.jpeg": "/gitname/react-gh-pages/static/media/old-fashioned.713750637d5cd184d3af.jpeg",
     "static/media/cocktail.jpeg": "/gitname/react-gh-pages/static/media/cocktail.9d44d2da07da6745ee88.jpeg",
     "static/media/copyright.svg": "/gitname/react-gh-pages/static/media/copyright.e371927fdfb4b1bf97b808e947b7649b.svg",
     "static/media/nores.svg": "/gitname/react-gh-pages/static/media/nores.8a8e8a58a669e2ca7a1c8018ed938f9e.svg",
     "index.html": "/gitname/react-gh-pages/index.html",
     "static/media/search.svg": "/gitname/react-gh-pages/static/media/search.3e876b567ce64ca117fb45ce39554a74.svg",
-    "static/media/heart-filler.svg": "/gitname/react-gh-pages/static/media/heart-filler.b060b6eb8aa346a41e80bc03e3a016d7.svg",
     "static/media/heart.svg": "/gitname/react-gh-pages/static/media/heart.f32fdefefd2879949ef193b93d1a5f6d.svg",
     "static/media/menu.svg": "/gitname/react-gh-pages/static/media/menu.cf47aeae16d7519f5576a6293562252a.svg",
     "static/media/x.svg": "/gitname/react-gh-pages/static/media/x.ef38ae7fc27055894fecc2791b643ac9.svg",
-    "main.67005d7c.css.map": "/gitname/react-gh-pages/static/css/main.67005d7c.css.map",
-    "main.a924733e.js.map": "/gitname/react-gh-pages/static/js/main.a924733e.js.map",
+    "main.4f073f07.css.map": "/gitname/react-gh-pages/static/css/main.4f073f07.css.map",
+    "main.be2b501f.js.map": "/gitname/react-gh-pages/static/js/main.be2b501f.js.map",
     "787.8ad68912.chunk.js.map": "/gitname/react-gh-pages/static/js/787.8ad68912.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.67005d7c.css",
-    "static/js/main.a924733e.js"
+    "static/css/main.4f073f07.css",
+    "static/js/main.be2b501f.js"
   ]
 }
