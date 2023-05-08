@@ -1,6 +1,3 @@
-import cocktail from "../img/old-fashioned.jpeg";
-import cocktail2 from "../img/cocktail.jpeg";
-
 const cocktailData = [
   {
     categoryTitle: "POPULAR DRINKS",
@@ -16,13 +13,23 @@ const cocktailData = [
             flag: ".jpg",
             text: "cum faci cocktail-ul in limba engleza",
           },
+          {
+            language: "es",
+            flag: ".jpg",
+            text: "bllbbll",
+          },
         ],
         favorite: true, // / false
         tags: ["iba", "classic"],
         ingredients: [
           {
-            image: "ingredient image.jpg",
+            image:
+              "https://www.descopera.ro/wp-content/uploads/2020/01/18693413/3-cai-curiozitati-11-ian-2020-shutterstock-1175510683-descopera.jpg",
             quantity: "4.5oz ...",
+          },
+          {
+            image: "ingredient image.jpg",
+            quantity: "4.0oz ...",
           },
         ],
       },
@@ -40,6 +47,10 @@ const cocktailData = [
         favorite: true, // / false
         tags: ["iba", "classic"],
         ingredients: [
+          {
+            image: "ingredient image.jpg",
+            quantity: "4.5oz ...",
+          },
           {
             image: "ingredient image.jpg",
             quantity: "4.5oz ...",
