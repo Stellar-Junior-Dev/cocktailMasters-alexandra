@@ -8,7 +8,7 @@ export function Card({ cocktail }) {
     <div
       onClick={() => {
         navigate(`/cocktail/${cocktail.name}`, {
-          state: { name: cocktail.name },
+          state: { cocktail: cocktail },
         });
       }}
       className="card"

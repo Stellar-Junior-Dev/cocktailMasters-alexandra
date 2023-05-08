@@ -1,0 +1,103 @@
+.detailspage {
+  width: 100vw;
+  height: 100vh;
+}
+
+.cocktail-image-details {
+  position: relative;
+  left: 0;
+  width: 100%;
+  background-color: cadetblue;
+}
+
+.cocktail-image-details > img {
+  width: 100%;
+}
+.favorite {
+  height: 52px;
+  width: 52px;
+  position: absolute;
+  width: 52px;
+  height: 52px;
+  left: 325px;
+  top: 12px;
+
+  background: rgba(150, 107, 157, 0.8);
+  border-radius: 20px;
+}
+
+.favorite-heart {
+  margin: auto;
+  height: 23px;
+  width: 23px;
+  position: absolute;
+  left: 12.52%;
+  right: 12.58%;
+  top: 14.14%;
+  bottom: 14.15%;
+}
+
+.back {
+  position: absolute;
+  width: 52px;
+  height: 52px;
+  left: 16px;
+  top: 12px;
+
+  background: rgba(150, 107, 157, 0.8);
+  border-radius: 20px;
+}
+
+.back-btn {
+  position: absolute;
+  margin: auto;
+  left: 16.86%;
+  right: 16.86%;
+  top: 0%;
+  bottom: 0%;
+}
+
+.cocktail-container {
+  position: absolute;
+  top: 345px;
+  width: 100%;
+  height: 100%;
+  background: #966b9d;
+  box-shadow: 0px -20px 20px 10px rgba(0, 0, 0, 0.25);
+  border-radius: 40px 40px 0px 0px;
+}
+.cocktail-title {
+  margin-left: 23px;
+  width: 70%;
+}
+
+.cocktail-title-text {
+  margin-bottom: 0;
+  font-size: 40px;
+  line-height: 54px;
+  color: #fff4ec;
+}
+
+.cocktail-tags {
+  position: relative;
+  width: 100%;
+  display: flex;
+  overflow-x: scroll;
+}
+
+.tag {
+  position: relative;
+  flex-shrink: 0;
+  margin: 9px 9px;
+  /* width: fit-content; */
+  height: 24px;
+  border-radius: 8px;
+  background: #fff4ec;
+}
+.tag-text {
+  margin: 0;
+  margin-left: 10px;
+  margin-right: 10px;
+  text-align: center;
+  color: #966b9d;
+}
