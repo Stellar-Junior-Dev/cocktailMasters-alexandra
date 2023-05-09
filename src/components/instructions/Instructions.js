@@ -1,6 +1,9 @@
 import "./instructions.css";
-import steag from "../../img/steag.png";
-export function Instructions(instructions) {
+import en from "../../img/en.svg";
+import es from "../../img/es.svg";
+import { useState } from "react";
+export function Instructions({ instructions }) {
+  const [selectedLanguage, setSelectedLanguage] = useState("en");
   return (
     <div class="instructions-container">
       <div class="instructions-title">
@@ -8,15 +11,22 @@ export function Instructions(instructions) {
       </div>
       <div class="instructions-text-container">
         <div class="instructions-language-container">
-          <img class="instructions-language" src={steag}></img>
-          <img class="instructions-language" src={steag}></img>
-          <img class="instructions-language" src={steag}></img>
+          {instructions.map((instruction) => (
+            <img
+              key={instruction.language}
+              className="instructions-language"
+              src={require(`../../img/${instruction.language}.svg`)}
+              alt={instruction.language}
+              onClick={() => setSelectedLanguage(instruction.language)}
+            />
+          ))}
         </div>
         <p class="instructions-text">
-          Place sugar cube in old fashioned glass and saturate with bitters, add
-          a dash of plain water.Muddle until dissolved.Fill the glass with ice
-          cubes and add whiskey.Garnish with orange twist, and a cocktail
-          cherry.
+          {
+            instructions.find(
+              (instruction) => instruction.language === selectedLanguage
+            ).text
+          }
         </p>
         <h2 class="instructions-glass-title">GLASS</h2>
         <p class="instructions-text">Serve: Old-fashioned glass</p>

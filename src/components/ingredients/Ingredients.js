@@ -8,11 +8,7 @@ export function Ingredient({ ingredients }) {
       <div class="ingredients-card-container">
         {ingredients.map((ingredient, index) => (
           <div key={index} className="ingredients-card">
-            <img
-              className="ingredients-image"
-              src={ingredient.image}
-              alt={ingredient.name}
-            />
+            <img className="ingredients-image" src={ingredient.image} />
             <p className="ingredients-text">{ingredient.quantity}</p>
           </div>
         ))}
