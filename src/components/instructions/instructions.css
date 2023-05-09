@@ -12,6 +12,7 @@
 }
 
 .instructions-text-container {
+  padding-bottom: 1%;
   margin: auto;
   width: 90%;
   background: #fff4ec;

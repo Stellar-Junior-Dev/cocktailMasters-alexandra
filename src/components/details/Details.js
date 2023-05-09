@@ -36,8 +36,16 @@ export function DetailsPage() {
             <p className="tag-text">expensive</p>
           </div>
         </div>
-        <Ingredient key={cocktail.id} ingredients={cocktail.ingredients} />
+        <Ingredient ingredients={cocktail.ingredients} />
         <Instructions instructions={cocktail.instructions} />
+        <div className="details-options-container">
+          <div className="previous-btn">
+            <a>{"<"} previous </a>
+          </div>
+          <div className="next-btn">
+            <a>next {">"} </a>
+          </div>
+        </div>
       </div>
     </div>
   );
