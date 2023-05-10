@@ -1,23 +1,27 @@
 {
   "files": {
-    "main.css": "/cocktailmasters-alexandra/static/css/main.4f073f07.css",
-    "main.js": "/cocktailmasters-alexandra/static/js/main.b130a13c.js",
+    "main.css": "/cocktailmasters-alexandra/static/css/main.75072ee1.css",
+    "main.js": "/cocktailmasters-alexandra/static/js/main.3502d456.js",
     "static/js/787.8ad68912.chunk.js": "/cocktailmasters-alexandra/static/js/787.8ad68912.chunk.js",
+    "static/media/es.svg": "/cocktailmasters-alexandra/static/media/es.cdfa40efc14f2f54a1998984ae1c38c9.svg",
     "static/media/old-fashioned.jpeg": "/cocktailmasters-alexandra/static/media/old-fashioned.713750637d5cd184d3af.jpeg",
     "static/media/cocktail.jpeg": "/cocktailmasters-alexandra/static/media/cocktail.9d44d2da07da6745ee88.jpeg",
+    "static/media/en.svg": "/cocktailmasters-alexandra/static/media/en.57f89c121b41a380ba62e4ef79963b83.svg",
     "static/media/copyright.svg": "/cocktailmasters-alexandra/static/media/copyright.e371927fdfb4b1bf97b808e947b7649b.svg",
     "static/media/nores.svg": "/cocktailmasters-alexandra/static/media/nores.8a8e8a58a669e2ca7a1c8018ed938f9e.svg",
     "index.html": "/cocktailmasters-alexandra/index.html",
     "static/media/search.svg": "/cocktailmasters-alexandra/static/media/search.3e876b567ce64ca117fb45ce39554a74.svg",
+    "static/media/heart-filler.svg": "/cocktailmasters-alexandra/static/media/heart-filler.b060b6eb8aa346a41e80.svg",
     "static/media/heart.svg": "/cocktailmasters-alexandra/static/media/heart.f32fdefefd2879949ef193b93d1a5f6d.svg",
     "static/media/menu.svg": "/cocktailmasters-alexandra/static/media/menu.cf47aeae16d7519f5576a6293562252a.svg",
     "static/media/x.svg": "/cocktailmasters-alexandra/static/media/x.ef38ae7fc27055894fecc2791b643ac9.svg",
-    "main.4f073f07.css.map": "/cocktailmasters-alexandra/static/css/main.4f073f07.css.map",
-    "main.b130a13c.js.map": "/cocktailmasters-alexandra/static/js/main.b130a13c.js.map",
+    "static/media/rect.svg": "/cocktailmasters-alexandra/static/media/rect.595fdf9e920067c5c356.svg",
+    "main.75072ee1.css.map": "/cocktailmasters-alexandra/static/css/main.75072ee1.css.map",
+    "main.3502d456.js.map": "/cocktailmasters-alexandra/static/js/main.3502d456.js.map",
     "787.8ad68912.chunk.js.map": "/cocktailmasters-alexandra/static/js/787.8ad68912.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.4f073f07.css",
-    "static/js/main.b130a13c.js"
+    "static/css/main.75072ee1.css",
+    "static/js/main.3502d456.js"
   ]
 }
