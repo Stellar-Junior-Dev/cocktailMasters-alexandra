@@ -5,12 +5,12 @@ import { useState } from "react";
 export function Instructions({ instructions }) {
   const [selectedLanguage, setSelectedLanguage] = useState("en");
   return (
-    <div class="instructions-container">
-      <div class="instructions-title">
+    <div className="instructions-container">
+      <div className="instructions-title">
         <h1>INSTRUCTIONS</h1>
       </div>
-      <div class="instructions-text-container">
-        <div class="instructions-language-container">
+      <div className="instructions-text-container">
+        <div className="instructions-language-container">
           {instructions.map((instruction) => (
             <img
               key={instruction.language}
@@ -21,15 +21,15 @@ export function Instructions({ instructions }) {
             />
           ))}
         </div>
-        <p class="instructions-text">
+        <p className="instructions-text">
           {
             instructions.find(
               (instruction) => instruction.language === selectedLanguage
             ).text
           }
         </p>
-        <h2 class="instructions-glass-title">GLASS</h2>
-        <p class="instructions-text">Serve: Old-fashioned glass</p>
+        <h2 className="instructions-glass-title">GLASS</h2>
+        <p className="instructions-text">Serve: Old-fashioned glass</p>
       </div>
     </div>
   );

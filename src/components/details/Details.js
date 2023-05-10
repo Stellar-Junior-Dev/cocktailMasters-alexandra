@@ -10,6 +10,12 @@ import { useEffect, useState } from "react";
 export function DetailsPage() {
   const location = useLocation();
   const cocktail = location.state.cocktail;
+  console.log(cocktail.id);
+  const cocktailList = location.state.cocktailList;
+
+  const nextCocktail = cocktailList[cocktail.id + 1];
+  const prevCocktail = cocktailList[cocktail.id - 1];
+  console.log(nextCocktail);
   const navigate = useNavigate();
   const [isScrolled, setIsScrolled] = useState(false);
   const [headerHeight, setHeaderHeight] = useState(0);
@@ -28,7 +34,7 @@ export function DetailsPage() {
   return (
     <div className="detailspage">
       <div
-        class="cocktail-image-details"
+        className="cocktail-image-details"
         onClick={() => {
           setIsScrolled(false);
         }}
@@ -38,7 +44,7 @@ export function DetailsPage() {
             <img
               src={back}
               onClick={() => {
-                navigate(-1);
+                navigate("/");
               }}
             />
           </div>
@@ -94,12 +100,38 @@ export function DetailsPage() {
         <Ingredient ingredients={cocktail.ingredients} />
         <Instructions instructions={cocktail.instructions} />
         <div className="details-options-container">
-          <div className="navigation-btn">
-            <a>{"<"} previous </a>
-          </div>
-          <div className="navigation-btn">
-            <a>next {">"} </a>
-          </div>
+          {prevCocktail && (
+            <div className="navigation-btn">
+              <a
+                onClick={() => {
+                  navigate(`/cocktail/${prevCocktail.name}`, {
+                    state: {
+                      cocktail: prevCocktail,
+                      cocktailList: cocktailList,
+                    },
+                  });
+                }}
+              >
+                {"<"} previous{" "}
+              </a>
+            </div>
+          )}
+          {nextCocktail && (
+            <div className="navigation-btn">
+              <a
+                onClick={() => {
+                  navigate(`/cocktail/${nextCocktail.name}`, {
+                    state: {
+                      cocktail: nextCocktail,
+                      cocktailList: cocktailList,
+                    },
+                  });
+                }}
+              >
+                next {">"}{" "}
+              </a>
+            </div>
+          )}
         </div>
       </div>
     </div>

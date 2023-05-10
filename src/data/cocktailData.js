@@ -1,12 +1,12 @@
 const cocktailData = [
   {
     categoryTitle: "POPULAR DRINKS",
-    id: 1,
+    id: 0,
     cocktails: [
       {
         image: require("../img/old-fashioned.jpeg"),
         name: "OLD FASHIONED",
-        id: 1,
+        id: 0,
         instructions: [
           {
             language: "en",
@@ -48,6 +48,30 @@ const cocktailData = [
       {
         image: require("../img/old-fashioned.jpeg"),
         name: "OLD FASHIONED",
+        id: 1,
+        instructions: [
+          {
+            language: "en",
+            flag: ".jpg",
+            text: "cum faci cocktail-ul in limba engleza",
+          },
+        ],
+        favorite: true, // / false
+        tags: ["iba", "classic"],
+        ingredients: [
+          {
+            image: "ingredient image.jpg",
+            quantity: "4.5oz ...",
+          },
+          {
+            image: "ingredient image.jpg",
+            quantity: "4.5oz ...",
+          },
+        ],
+      },
+      {
+        image: require("../img/old-fashioned.jpeg"),
+        name: "OLD FASHIONED",
         id: 2,
         instructions: [
           {
@@ -73,12 +97,12 @@ const cocktailData = [
   },
   {
     categoryTitle: "LATEST DRINKS",
-    id: 2,
+    id: 1,
     cocktails: [
       {
         image: require("../img/cocktail.jpeg"),
         name: "MOJITO",
-        id: 1,
+        id: 0,
         instructions: [
           {
             language: "en",
@@ -98,7 +122,7 @@ const cocktailData = [
       {
         image: require("../img/cocktail.jpeg"),
         name: "MOJITO",
-        id: 2,
+        id: 1,
         instructions: [
           {
             language: "en",

@@ -4,10 +4,10 @@ import copyright from "../../img/copyright.svg";
 
 export function Options({ open, toggleOpen }) {
   return (
-    <div class={`options-background ${!open ? "hide-options" : ""}`}>
-      <div class="overlay">
+    <div className={`options-background ${!open ? "hide-options" : ""}`}>
+      <div className="overlay">
         <div
-          class="close"
+          className="close"
           onClick={() => {
             toggleOpen(false);
           }}
@@ -22,8 +22,8 @@ export function Options({ open, toggleOpen }) {
           <h1>RANDOM DRINKS</h1>
         </div>
 
-        <div class="copyright">
-          <div class="copyright-image">
+        <div className="copyright">
+          <div className="copyright-image">
             <img src={copyright} alt="Copyright details" />
           </div>
         </div>

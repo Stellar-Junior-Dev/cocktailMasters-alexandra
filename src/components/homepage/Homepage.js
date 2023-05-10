@@ -7,11 +7,11 @@ export function HomePage() {
   return (
     <div>
       <Controls />
-      <div class="title">
+      <div className="title">
         <h2>COCKTAIL MASTER</h2>
       </div>
 
-      <div class="content">
+      <div className="content">
         {cocktailData.map((category) => (
           <Category
             categoryTitle={category.categoryTitle}
