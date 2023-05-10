@@ -1,0 +1,41 @@
+.instructions-container {
+  width: 100%;
+}
+
+.instructions-title {
+  margin-left: 24px;
+}
+
+.instructions-title > h1 {
+  font-size: 24px;
+  color: #fff4ec;
+}
+
+.instructions-text-container {
+  padding-bottom: 1%;
+  margin: auto;
+  width: 90%;
+  background: #fff4ec;
+  border-radius: 8px;
+}
+.instructions-text {
+  font-size: 12px;
+  color: #966b9d;
+  margin-top: 0%;
+  margin-left: 2%;
+}
+
+.instructions-language-container {
+  display: inline;
+}
+.instructions-language {
+  margin-top: 2%;
+  margin-left: 2%;
+}
+
+.instructions-glass-title {
+  margin: 0%;
+  margin-left: 2%;
+  font-size: 18px;
+  color: #966b9d;
+}

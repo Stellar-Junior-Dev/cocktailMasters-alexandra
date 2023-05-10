@@ -15,7 +15,7 @@ export function Controls() {
         onClick={() => {
           toggleOptions(true);
         }}
-        class={"menu"}
+        className={"menu"}
       >
         <img src={menu} />
       </div>

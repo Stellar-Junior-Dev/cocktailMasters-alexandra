@@ -1,11 +1,50 @@
-import cocktail from "../img/old-fashioned.jpeg";
-import cocktail2 from "../img/cocktail.jpeg";
-
 const cocktailData = [
   {
     categoryTitle: "POPULAR DRINKS",
-    id: 1,
+    id: 0,
     cocktails: [
+      {
+        image: require("../img/old-fashioned.jpeg"),
+        name: "OLD FASHIONED",
+        id: 0,
+        instructions: [
+          {
+            language: "en",
+            flag: ".jpg",
+            text: "cum faci cocktail-ul in limba engleza",
+          },
+          {
+            language: "es",
+            flag: ".jpg",
+            text: "bllbbll",
+          },
+        ],
+        favorite: true, // / false
+        tags: ["iba", "classic", "alcoholic", "expensive"],
+        ingredients: [
+          {
+            image:
+              "https://www.descopera.ro/wp-content/uploads/2020/01/18693413/3-cai-curiozitati-11-ian-2020-shutterstock-1175510683-descopera.jpg",
+            quantity: "4.5oz ...",
+          },
+          {
+            image: "ingredient image.jpg",
+            quantity: "4.0oz ...",
+          },
+          {
+            image: "ingredient image.jpg",
+            quantity: "4.0oz ...",
+          },
+          {
+            image: "ingredient image.jpg",
+            quantity: "4.0oz ...",
+          },
+          {
+            image: "ingredient image.jpg",
+            quantity: "4.0oz ...",
+          },
+        ],
+      },
       {
         image: require("../img/old-fashioned.jpeg"),
         name: "OLD FASHIONED",
@@ -20,6 +59,10 @@ const cocktailData = [
         favorite: true, // / false
         tags: ["iba", "classic"],
         ingredients: [
+          {
+            image: "ingredient image.jpg",
+            quantity: "4.5oz ...",
+          },
           {
             image: "ingredient image.jpg",
             quantity: "4.5oz ...",
@@ -44,18 +87,22 @@ const cocktailData = [
             image: "ingredient image.jpg",
             quantity: "4.5oz ...",
           },
+          {
+            image: "ingredient image.jpg",
+            quantity: "4.5oz ...",
+          },
         ],
       },
     ],
   },
   {
     categoryTitle: "LATEST DRINKS",
-    id: 2,
+    id: 1,
     cocktails: [
       {
         image: require("../img/cocktail.jpeg"),
         name: "MOJITO",
-        id: 1,
+        id: 0,
         instructions: [
           {
             language: "en",
@@ -75,7 +122,7 @@ const cocktailData = [
       {
         image: require("../img/cocktail.jpeg"),
         name: "MOJITO",
-        id: 2,
+        id: 1,
         instructions: [
           {
             language: "en",

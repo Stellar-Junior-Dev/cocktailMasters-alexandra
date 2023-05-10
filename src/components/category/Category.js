@@ -4,19 +4,23 @@ import { Card } from "../card/Card";
 export function Category({ categoryTitle, cocktails }) {
   return (
     <>
-      <div class="category">
-        <div class="catDetails">
-          <div class="catTitle">
+      <div className="category">
+        <div className="catDetails">
+          <div className="catTitle">
             <h1>{categoryTitle}</h1>
           </div>
-          <div class="view">
+          <div className="view">
             <a>view all {">"}</a>
           </div>
         </div>
 
-        <div class="cardContainer">
+        <div className="cardContainer">
           {cocktails.map((cocktail) => (
-            <Card key={cocktail.id} cocktail={cocktail} />
+            <Card
+              key={cocktail.id}
+              cocktail={cocktail}
+              cocktailList={cocktails}
+            />
           ))}
         </div>
       </div>
