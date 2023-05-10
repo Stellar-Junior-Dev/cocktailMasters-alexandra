@@ -1,9 +1,11 @@
-import { Category } from "../category/Category";
-import { Controls } from "../controls/Controls";
-import cocktailData from "../../data/cocktailData";
+import { Category } from "../../components/category/Category";
+import { Controls } from "../../components/controls/Controls";
+import { useSelector } from "react-redux";
 import "./homepage.css";
+import { selectCocktailData } from "../../selectors/selectCocktailData";
 
 export function HomePage() {
+  const cocktailData = useSelector(selectCocktailData);
   return (
     <div>
       <Controls />

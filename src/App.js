@@ -1,22 +1,35 @@
 import "./App.css";
-import { HomePage } from "./components/homepage/Homepage";
-import { DetailsPage } from "./components/details/Details";
+import { DetailsPage } from "./pages/details/Details";
+import createStore from "./store";
+import {
+  createBrowserRouter,
+  createHashRouter,
+  RouterProvider,
+} from "react-router-dom";
+import { Provider } from "react-redux";
+import { HomePage } from "./pages/homepage/Homepage";
+// import { PersistGate } from "redux-persist/integration/react";
 
-import { createHashRouter, RouterProvider } from "react-router-dom";
-
-const router = createHashRouter([
+const router = createBrowserRouter([
   {
     path: "/",
     element: <HomePage />,
   },
   {
-    path: "/cocktail/:cocktailName",
+    path: "/cocktail/:id",
     element: <DetailsPage />,
   },
 ]);
 
+const { store } = createStore();
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <Provider store={store}>
+      {/* <PersistGate loading={null} persistor={persistor}> */}
+      <RouterProvider router={router} />
+      {/* </PersistGate> */}
+    </Provider>
+  );
 }
 
 export default App;
