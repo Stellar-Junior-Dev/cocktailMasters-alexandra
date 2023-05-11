@@ -50,7 +50,7 @@ const initialState = {
         },
         {
           image: require("../img/old-fashioned.jpeg"),
-          name: "OLD FASHIONED",
+          name: "OL FASHIONED",
           id: 1,
           instructions: [
             {
@@ -196,6 +196,7 @@ const initialState = {
   selectedCocktail: undefined,
   prevId: undefined,
   nextId: undefined,
+  searchResults: [],
 };
 
 export default function rootReducer(state = initialState, action) {
@@ -224,6 +225,36 @@ export default function rootReducer(state = initialState, action) {
         prevId: prevId,
         nextId: nextId,
       };
+    case "SEARCH":
+      const name = action.payload.searchParam;
+      if (name === "") {
+        return {
+          ...state,
+          searchResults: [],
+        };
+      }
+      let n = name.toLowerCase();
+      const r = [];
+
+      state.cocktailData.forEach((category) => {
+        let searchResults = category.cocktails.filter((el) =>
+          el.name.toLowerCase().includes(n)
+        );
+
+        searchResults.forEach((result) => {
+          //TODO: compare with ids instead of name
+          const f = r.find((e) => e.name === result.name);
+
+          if (!f) {
+            r.push(result);
+          }
+        });
+      });
+      return {
+        ...state,
+        searchResults: r,
+      };
+
     default:
       return state;
   }

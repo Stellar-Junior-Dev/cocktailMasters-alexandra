@@ -28,7 +28,6 @@ export function DetailsPage() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    console.log("ASDADSda");
     document.body.style.overflow = "hidden";
     return () => {
       document.body.style.overflow = "initial";

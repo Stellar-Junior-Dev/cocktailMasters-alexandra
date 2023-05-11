@@ -1,15 +1,38 @@
 import "./search.css";
 import x from "../../img/x.svg";
-import search from "../../img/search.svg";
+import searchicon from "../../img/search.svg";
 import noresults from "../../img/nores.svg";
+import { Card } from "../card/Card";
+
+import { useDispatch, useSelector } from "react-redux";
+import { selectSearchResults } from "../../selectors/selectCocktailData";
+import { useEffect, useState } from "react";
+
 export function Search({ open, toggleOpen }) {
+  const dispatch = useDispatch();
+  const searchResults = useSelector(selectSearchResults);
+  const [searchValue, setSearchValue] = useState("");
+
+  useEffect(() => {
+    return () => {
+      dispatch({
+        type: "SEARCH",
+        payload: { searchParam: "" },
+      });
+    };
+  }, []);
   return (
     <div className={`search-background ${!open ? "hide-search" : ""}`}>
       <div className="search-content">
         <div
           className="close"
           onClick={() => {
+            dispatch({
+              type: "SEARCH",
+              payload: { searchParam: "" },
+            });
             toggleOpen(false);
+            setSearchValue("");
           }}
         >
           <img src={x} alt="Close icon"></img>
@@ -21,14 +44,22 @@ export function Search({ open, toggleOpen }) {
         <div className="form-div>">
           <form className="search-form">
             <input
+              value={searchValue}
               className="search-input"
               type="text"
               id="search"
               name="search"
               placeholder="TYPE HERE"
+              onChange={(e) => {
+                setSearchValue(e.target.value);
+                dispatch({
+                  type: "SEARCH",
+                  payload: { searchParam: e.target.value },
+                });
+              }}
             />
             <div className="submit-btn" type="submit">
-              <img src={search} alt="Search icon" />
+              <img src={searchicon} alt="Search icon" />
             </div>
           </form>
         </div>
@@ -39,7 +70,21 @@ export function Search({ open, toggleOpen }) {
           </div>
 
           <div className="results-content">
-            <img src={noresults} alt="No results" />
+            {searchResults.length === 0 && (
+              <img className="no-result" src={noresults} alt="No results" />
+            )}
+            {searchResults.length > 0 && (
+              <>
+                {searchResults.map((cocktail) => (
+                  <Card
+                    className={"search-card"}
+                    key={cocktail.id}
+                    cocktail={cocktail}
+                    cocktailList={searchResults}
+                  />
+                ))}
+              </>
+            )}
           </div>
         </div>
       </div>
