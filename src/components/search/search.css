@@ -104,9 +104,10 @@
 }
 
 .no-result {
-  margin-top: 60px;
+  padding-top: 60px;
   height: 218px;
   width: 180px;
+  margin: auto;
 }
 
 .search-background.hide-search {
