@@ -13,6 +13,14 @@ export function Controls() {
     <div className="details">
       <div
         onClick={() => {
+          toggleSearch(true);
+        }}
+        className={"menu"}
+      >
+        <img src={search} />
+      </div>
+      <div
+        onClick={() => {
           toggleOptions(true);
         }}
         className={"menu"}
@@ -20,14 +28,6 @@ export function Controls() {
         <img src={menu} />
       </div>
 
-      <div
-        onClick={() => {
-          toggleSearch(true);
-        }}
-        className={"menu"}
-      >
-        <img src={search} />
-      </div>
       <Search toggleOpen={toggleSearch} open={searchOpen} />
       <Options toggleOpen={toggleOptions} open={optionsOpen} />
     </div>

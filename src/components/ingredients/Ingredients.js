@@ -5,7 +5,7 @@ export function Ingredient({ ingredients }) {
       <div className="ingredients-title">
         <h1>INGREDIENTS</h1>
       </div>
-      <div class="ingredients-card-container">
+      <div className="ingredients-card-container">
         {ingredients.map((ingredient, index) => (
           <div key={index} className="ingredients-card">
             <img className="ingredients-image" src={ingredient.image} />

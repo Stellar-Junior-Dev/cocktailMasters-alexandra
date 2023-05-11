@@ -28,6 +28,7 @@ export function DetailsPage() {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    console.log("ASDADSda");
     document.body.style.overflow = "hidden";
     return () => {
       document.body.style.overflow = "initial";
@@ -35,7 +36,7 @@ export function DetailsPage() {
   }, []);
 
   useEffect(() => {
-    if (!cocktail) {
+    if (!cocktail || cocktail?.id !== id) {
       let foundCocktail = undefined;
       categoryList.forEach((category) => {
         let searchResults = category.cocktails.filter((el) => el.id == id);
@@ -48,7 +49,7 @@ export function DetailsPage() {
         payload: { cocktail: foundCocktail },
       });
     }
-  }, [cocktail]);
+  }, [cocktail, id]);
 
   return (
     !!cocktail && (
@@ -120,27 +121,31 @@ export function DetailsPage() {
           <Ingredient ingredients={cocktail?.ingredients} />
           <Instructions instructions={cocktail?.instructions} />
           <div className="details-options-container">
-            {!!prevId && (
+            {prevId != undefined ? (
               <div className="navigation-btn">
-                <a
+                <div
                   onClick={() => {
                     navigate(`/cocktail/${prevId}`);
                   }}
                 >
                   {"<"} previous{" "}
-                </a>
+                </div>
               </div>
+            ) : (
+              <div></div>
             )}
-            {!!nextId && (
+            {nextId != undefined ? (
               <div className="navigation-btn">
-                <a
+                <div
                   onClick={() => {
                     navigate(`/cocktail/${nextId}`);
                   }}
                 >
                   next {">"}{" "}
-                </a>
+                </div>
               </div>
+            ) : (
+              <div></div>
             )}
           </div>
         </div>

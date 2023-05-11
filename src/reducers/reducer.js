@@ -205,7 +205,6 @@ export default function rootReducer(state = initialState, action) {
       let cocktail = action.payload.cocktail;
       let categoryList = state.cocktailData;
       categoryList.forEach((category) => {
-        console.log(category.cocktails);
         let prevResults = category.cocktails.filter(
           (el) => el.id == cocktail.id - 1
         );
