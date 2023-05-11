@@ -100,7 +100,7 @@
   margin: 2%;
 }
 
-.navigation-btn > a {
+.navigation-btn > div {
   font-size: 10px;
   color: #fff4ec;
 }

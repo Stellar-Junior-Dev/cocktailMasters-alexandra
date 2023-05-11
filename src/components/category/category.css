@@ -1,39 +1,37 @@
-.category{
-    width: 100%;
-  }
+.category {
+  width: 100%;
+}
 
-  .catDetails{
-    display: flex;
-    align-items: center;
-    margin:auto;
-    width:90%
-  }
-  
-  
-  .view{
-    display: flex;
-    flex-wrap: wrap;
-    align-content: center;
-    width: 100px;
-    height: 22px;
-    font-size: 10px;
-    color: #c98686;
-  }
-  
-  .catTitle{
-    width:400px;
-  }
-  
-  
-  .catTitle>h1{
-    height: 22px;
-    font-size: 16px;
-    color: #c98686;
-    text-align: left;
-  }
-  
-  .cardContainer{
-    display: flex;
-    width:100%;
-    overflow-x: scroll;
-  }
+.catDetails {
+  display: flex;
+  align-items: center;
+  margin: auto;
+  width: 90%;
+}
+
+.view {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  width: 100px;
+  height: 22px;
+  font-size: 10px;
+  color: #c98686;
+}
+
+.catTitle {
+  width: 100%;
+}
+
+.catTitle > h1 {
+  height: 22px;
+  font-size: 16px;
+  color: #c98686;
+  text-align: left;
+}
+
+.cardContainer {
+  display: flex;
+  width: 100%;
+  overflow-x: scroll;
+}
