@@ -164,3 +164,14 @@
   height: 12px;
   width: 12px;
 }
+
+@media screen and (max-width: 390px) {
+  .results-content {
+    justify-content: center;
+  }
+}
+@media screen and (min-width: 500px) {
+  .results-content {
+    width: 80%;
+  }
+}
