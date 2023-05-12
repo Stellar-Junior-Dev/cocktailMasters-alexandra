@@ -5,3 +5,4 @@ export const selectCocktailNeighbours = (state) => ({
   prevId: state.prevId,
 });
 export const selectSearchResults = (state) => state.searchResults;
+export const selectSelectedCategory = (state) => state.selectedCategory;

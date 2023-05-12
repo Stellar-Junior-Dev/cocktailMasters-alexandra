@@ -8,10 +8,7 @@ export function Card({ cocktail, className }) {
   return (
     <Link
       to={`/cocktail/${cocktail.id}`}
-      onClick={() => {
-        dispatch({ type: "SET_COCKTAIL", payload: { cocktail } });
-      }}
-      className={`card ${className ? className : ""}`}
+      className={className ? className : "card"}
       style={{ backgroundImage: `url(${cocktail.image})` }}
     >
       <div className="heart-container">

@@ -197,13 +197,21 @@ const initialState = {
   prevId: undefined,
   nextId: undefined,
   searchResults: [],
+  selectedCategory: undefined,
 };
 
 export default function rootReducer(state = initialState, action) {
   switch (action.type) {
     case "SET_COCKTAIL":
       let prevId, nextId;
-      let cocktail = action.payload.cocktail;
+      let cocktailId = action.payload.id;
+      let cocktail;
+      state.cocktailData.forEach((category) => {
+        let found = category.cocktails.find((it) => it.id == cocktailId);
+        if (found && cocktail == undefined) {
+          cocktail = found;
+        }
+      });
       let categoryList = state.cocktailData;
       categoryList.forEach((category) => {
         let prevResults = category.cocktails.filter(
@@ -253,6 +261,14 @@ export default function rootReducer(state = initialState, action) {
       return {
         ...state,
         searchResults: r,
+      };
+
+    case "SET_CATEGORY":
+      let categoryId = action.payload.id;
+      let category = state.cocktailData.find((it) => it.id == categoryId);
+      return {
+        ...state,
+        selectedCategory: category,
       };
 
     default:

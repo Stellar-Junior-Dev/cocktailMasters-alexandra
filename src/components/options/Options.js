@@ -1,6 +1,7 @@
 import "./options.css";
 import x from "../../img/x.svg";
 import copyright from "../../img/copyright.svg";
+import { Link } from "react-router-dom";
 
 export function Options({ open, toggleOpen }) {
   return (
@@ -15,11 +16,11 @@ export function Options({ open, toggleOpen }) {
           <img src={x} alt="Close icon" />
         </div>
         <div className="opt">
-          <h1>HOME</h1>
-          <h1>FAVOURITES</h1>
-          <h1>POPULAR DRINKS</h1>
-          <h1>LATEST DRINKS</h1>
-          <h1>RANDOM DRINKS</h1>
+          <Link to={"/"}>HOME</Link>
+          <Link>FAVOURITES</Link>
+          <Link>POPULAR DRINKS</Link>
+          <Link>LATEST DRINKS</Link>
+          <Link>RANDOM DRINKS</Link>
         </div>
 
         <div className="copyright">

@@ -1,0 +1,65 @@
+.category-page {
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+  width: 92%;
+  justify-content: space-between;
+}
+
+.category-page .card {
+  margin: 2%;
+  width: 165px;
+  height: 165px;
+  background-color: blueviolet;
+  background-size: cover;
+  position: relative;
+  border-radius: 8px;
+}
+
+.category-page .drink {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  height: 44px;
+  width: 100%;
+  background: rgba(150, 107, 157, 0.8);
+  bottom: 0;
+  border-bottom-left-radius: inherit;
+  border-bottom-right-radius: inherit;
+}
+
+.category-page .drink > h1 {
+  margin: auto;
+  font-size: 16px;
+  line-height: 22px;
+  text-align: center;
+  color: #fff4ec;
+}
+
+.category-page .heart-container {
+  position: relative;
+  width: 26px;
+  height: 26px;
+  left: 130px;
+  background: rgba(150, 107, 157, 0.8);
+  border-radius: 20px;
+  display: flex;
+}
+
+.category-page .heart {
+  position: absolute;
+  margin: auto;
+  height: 12px;
+  width: 12px;
+}
+
+@media screen and (max-width: 389px) {
+  .results-content {
+    justify-content: center;
+  }
+}
+@media screen and (min-width: 500px) {
+  .results-content {
+    width: 80%;
+  }
+}

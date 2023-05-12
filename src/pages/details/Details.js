@@ -1,9 +1,4 @@
-import {
-  useLocation,
-  useNavigate,
-  useParams,
-  useResolvedPath,
-} from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import "./details.css";
 import heart from "../../img/heart.svg";
 import back from "../../img/back.png";
@@ -23,7 +18,6 @@ export function DetailsPage() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [headerHeight, setHeaderHeight] = useState(0);
   const cocktail = useSelector(selectSelectedCocktail);
-  const categoryList = useSelector(selectCocktailData);
   const { nextId, prevId } = useSelector(selectCocktailNeighbours);
   const dispatch = useDispatch();
 
@@ -35,19 +29,10 @@ export function DetailsPage() {
   }, []);
 
   useEffect(() => {
-    if (!cocktail || cocktail?.id !== id) {
-      let foundCocktail = undefined;
-      categoryList.forEach((category) => {
-        let searchResults = category.cocktails.filter((el) => el.id == id);
-        if (searchResults.length > 0 && !foundCocktail) {
-          foundCocktail = searchResults[0];
-        }
-      });
-      dispatch({
-        type: "SET_COCKTAIL",
-        payload: { cocktail: foundCocktail },
-      });
-    }
+    dispatch({
+      type: "SET_COCKTAIL",
+      payload: { id: id },
+    });
   }, [cocktail, id]);
 
   return (
