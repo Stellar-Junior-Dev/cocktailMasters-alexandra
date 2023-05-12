@@ -4,3 +4,4 @@ export const selectCocktailNeighbours = (state) => ({
   nextId: state.nextId,
   prevId: state.prevId,
 });
+export const selectSearchResults = (state) => state.searchResults;

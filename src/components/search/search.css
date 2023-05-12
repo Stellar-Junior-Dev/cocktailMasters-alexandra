@@ -50,6 +50,7 @@
   position: relative;
 }
 .search-input {
+  padding-left: 10px;
   position: relative;
   width: 100%;
   height: 42px;
@@ -82,8 +83,8 @@
   line-height: 22px;
   color: #dcacaa;
 }
-
 .results-text {
+  padding-left: 3px;
   margin-top: 24px;
   margin-left: 24px;
 }
@@ -96,14 +97,17 @@
 
 .results-content {
   display: flex;
-  justify-content: center;
-  height: 550px;
+  flex-wrap: wrap;
+  margin: auto;
+  width: 92%;
+  justify-content: space-between;
 }
 
-.results-content > img {
-  margin-top: 60px;
+.no-result {
+  padding-top: 60px;
   height: 218px;
   width: 180px;
+  margin: auto;
 }
 
 .search-background.hide-search {
@@ -112,4 +116,62 @@
 
 .hide-search .search-content {
   transform: translateY(100%);
+}
+
+.search-card {
+  margin: 2%;
+  width: 165px;
+  height: 165px;
+  background-color: blueviolet;
+  background-size: cover;
+  position: relative;
+  border-radius: 8px;
+}
+
+.search-card .drink {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  height: 44px;
+  width: 100%;
+  background: rgba(150, 107, 157, 0.8);
+  bottom: 0;
+  border-bottom-left-radius: inherit;
+  border-bottom-right-radius: inherit;
+}
+
+.search-card .drink > h1 {
+  margin: auto;
+  font-size: 16px;
+  line-height: 22px;
+  text-align: center;
+  color: #fff4ec;
+}
+
+.search-card .heart-container {
+  position: relative;
+  width: 26px;
+  height: 26px;
+  left: 130px;
+  background: rgba(150, 107, 157, 0.8);
+  border-radius: 20px;
+  display: flex;
+}
+
+.search-card .heart {
+  position: absolute;
+  margin: auto;
+  height: 12px;
+  width: 12px;
+}
+
+@media screen and (max-width: 389px) {
+  .results-content {
+    justify-content: center;
+  }
+}
+@media screen and (min-width: 500px) {
+  .results-content {
+    width: 80%;
+  }
 }

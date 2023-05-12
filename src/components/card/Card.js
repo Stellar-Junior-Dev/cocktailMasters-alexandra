@@ -1,10 +1,9 @@
 import "./card.css";
 import heart from "../../img/heart.svg";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
-export function Card({ cocktail }) {
-  const navigate = useNavigate();
+export function Card({ cocktail, className }) {
   const dispatch = useDispatch();
   return (
     <Link
@@ -12,7 +11,7 @@ export function Card({ cocktail }) {
       onClick={() => {
         dispatch({ type: "SET_COCKTAIL", payload: { cocktail } });
       }}
-      className="card"
+      className={`card ${className ? className : ""}`}
       style={{ backgroundImage: `url(${cocktail.image})` }}
     >
       <div className="heart-container">
