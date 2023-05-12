@@ -10,7 +10,7 @@ import { Provider } from "react-redux";
 import { HomePage } from "./pages/homepage/Homepage";
 // import { PersistGate } from "redux-persist/integration/react";
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path: "/",
     element: <HomePage />,
