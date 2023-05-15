@@ -2,37 +2,23 @@ import "./App.css";
 import { DetailsPage } from "./pages/details/Details";
 import { CategoryPage } from "./pages/categories/CategoryPage";
 import createStore from "./store";
-import {
-  createBrowserRouter,
-  createHashRouter,
-  RouterProvider,
-} from "react-router-dom";
+import { HashRouter, Route, Routes } from "react-router-dom";
 import { Provider } from "react-redux";
 import { HomePage } from "./pages/homepage/Homepage";
-// import { PersistGate } from "redux-persist/integration/react";
-
-const router = createHashRouter([
-  {
-    path: "/",
-    element: <HomePage />,
-  },
-  {
-    path: "/cocktail/:id",
-    element: <DetailsPage />,
-  },
-  {
-    path: "/category/:categoryId",
-    element: <CategoryPage />,
-  },
-]);
+import { PopupWrapper } from "./components/popupWrapper/popupWrapper";
 
 const { store } = createStore();
 function App() {
   return (
     <Provider store={store}>
-      {/* <PersistGate loading={null} persistor={persistor}> */}
-      <RouterProvider router={router} />
-      {/* </PersistGate> */}
+      <HashRouter>
+        <PopupWrapper />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/cocktail/:id" element={<DetailsPage />} />
+          <Route path="/category/:categoryId" element={<CategoryPage />} />
+        </Routes>
+      </HashRouter>
     </Provider>
   );
 }

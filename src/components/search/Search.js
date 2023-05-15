@@ -7,9 +7,11 @@ import { Card } from "../card/Card";
 import { useDispatch, useSelector } from "react-redux";
 import { selectSearchResults } from "../../selectors/selectCocktailData";
 import { useEffect, useState } from "react";
+import { POPUP_NAME } from "../../utils/popupNames";
 
-export function Search({ open, toggleOpen }) {
+export function Search({ open }) {
   const dispatch = useDispatch();
+
   const searchResults = useSelector(selectSearchResults);
   const [searchValue, setSearchValue] = useState("");
 
@@ -31,8 +33,11 @@ export function Search({ open, toggleOpen }) {
               type: "SEARCH",
               payload: { searchParam: "" },
             });
-            toggleOpen(false);
             setSearchValue("");
+            dispatch({
+              type: "TOGGLE_POPUP",
+              payload: { name: POPUP_NAME.OPTIONS, value: false },
+            });
           }}
         >
           <img src={x} alt="Close icon"></img>

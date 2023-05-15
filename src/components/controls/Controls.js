@@ -4,17 +4,19 @@ import search from "../../img/search.svg";
 import { Options } from "../options/Options";
 import { Search } from "../search/Search";
 import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { POPUP_NAME } from "../../utils/popupNames";
 
 export function Controls() {
-  const [optionsOpen, toggleOptions] = useState(false);
-  const [searchOpen, toggleSearch] = useState(false);
-
+  const dispatch = useDispatch();
   return (
     <div className="details">
       <div
         onClick={() => {
-          toggleSearch(true);
+          dispatch({
+            type: "TOGGLE_POPUP",
+            payload: { name: POPUP_NAME.SEARCH, value: true },
+          });
         }}
         className={"menu"}
       >
@@ -23,15 +25,15 @@ export function Controls() {
 
       <div
         onClick={() => {
-          toggleOptions(true);
+          dispatch({
+            type: "TOGGLE_POPUP",
+            payload: { name: POPUP_NAME.OPTIONS, value: true },
+          });
         }}
         className={"menu"}
       >
         <img src={menu} alt="meniu" />
       </div>
-
-      <Search toggleOpen={toggleSearch} open={searchOpen} />
-      <Options toggleOpen={toggleOptions} open={optionsOpen} />
     </div>
   );
 }
