@@ -18,7 +18,7 @@ export function Controls() {
         }}
         className={"menu"}
       >
-        <img src={search} />
+        <img src={search} alt="search" />
       </div>
 
       <div
@@ -27,7 +27,7 @@ export function Controls() {
         }}
         className={"menu"}
       >
-        <img src={menu} />
+        <img src={menu} alt="meniu" />
       </div>
 
       <Search toggleOpen={toggleSearch} open={searchOpen} />
