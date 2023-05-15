@@ -1,8 +1,13 @@
 import "./options.css";
 import x from "../../img/x.svg";
 import copyright from "../../img/copyright.svg";
+import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { selectCocktailData } from "../../selectors/selectCocktailData";
 
 export function Options({ open, toggleOpen }) {
+  const dispatch = useDispatch();
+  const cocktailData = useSelector(selectCocktailData);
   return (
     <div className={`options-background ${!open ? "hide-options" : ""}`}>
       <div className="overlay">
@@ -15,11 +20,30 @@ export function Options({ open, toggleOpen }) {
           <img src={x} alt="Close icon" />
         </div>
         <div className="opt">
-          <h1>HOME</h1>
-          <h1>FAVOURITES</h1>
-          <h1>POPULAR DRINKS</h1>
-          <h1>LATEST DRINKS</h1>
-          <h1>RANDOM DRINKS</h1>
+          <Link
+            to={"/"}
+            onClick={() => {
+              toggleOpen(false);
+            }}
+          >
+            HOME
+          </Link>
+
+          {cocktailData.map((category) => (
+            <Link
+              key={category.id}
+              to={`/category/${category.id}`}
+              onClick={() => {
+                dispatch({
+                  type: "SET_CATEGORY",
+                  payload: { id: category.id },
+                });
+                toggleOpen(false);
+              }}
+            >
+              {category.categoryTitle}
+            </Link>
+          ))}
         </div>
 
         <div className="copyright">

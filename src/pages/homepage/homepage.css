@@ -11,11 +11,3 @@
   line-height: 54px;
   color: #c98686;
 }
-
-.details {
-  margin-right: 20px;
-  float: right;
-  width: 90px;
-  display: flex;
-  justify-content: space-evenly;
-}

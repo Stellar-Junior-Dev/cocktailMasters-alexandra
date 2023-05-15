@@ -1,15 +1,6 @@
-.search > img {
-  height: 24px;
-  width: 24px;
-}
-.menu > img {
-  height: 24px;
-  width: 24px;
-}
 .details {
-  margin-right: 20px;
   float: right;
-  width: 90px;
+  width: 20%;
   display: flex;
   justify-content: space-evenly;
 }

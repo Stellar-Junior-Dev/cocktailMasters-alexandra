@@ -22,17 +22,24 @@
 }
 
 .opt {
-  height: 300px;
-  margin-top: 85px;
+  height: 40%;
+  margin-top: 30%;
 }
 
-.opt > h1 {
+.opt > a {
+  padding: 15px;
+  padding-top: 10px;
+  padding-bottom: 0px;
+  float: right;
   font-size: 24px;
-  line-height: 33px;
-  text-align: right;
   color: #c98686;
   opacity: 0.65;
   margin-right: 24px;
+  text-decoration: none;
+}
+
+.opt > a:hover {
+  opacity: 1;
 }
 
 .close {

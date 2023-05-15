@@ -1,7 +1,9 @@
 import "./category.css";
 import { Card } from "../card/Card";
-
-export function Category({ categoryTitle, cocktails }) {
+import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+export function Category({ categoryTitle, cocktails, id, className, source }) {
+  const dispatch = useDispatch();
   return (
     <>
       <div className="category">
@@ -9,12 +11,21 @@ export function Category({ categoryTitle, cocktails }) {
           <div className="catTitle">
             <h1>{categoryTitle}</h1>
           </div>
-          <div className="view">
-            <a>view all {">"}</a>
-          </div>
+          {source && (
+            <div className="view">
+              <Link
+                to={`/category/${id}`}
+                onClick={() => {
+                  dispatch({ type: "SET_CATEGORY", payload: { id: id } });
+                }}
+              >
+                view all {">"}
+              </Link>
+            </div>
+          )}
         </div>
 
-        <div className="cardContainer">
+        <div className={className ? className : "cardContainer"}>
           {cocktails.map((cocktail) => (
             <Card
               key={cocktail.id}

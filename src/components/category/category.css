@@ -6,17 +6,22 @@
   display: flex;
   align-items: center;
   margin: auto;
-  width: 90%;
+  justify-content: space-between;
+  padding-left: 24px;
 }
 
 .view {
+  padding-right: 24px;
   display: flex;
   flex-wrap: wrap;
   align-content: center;
-  width: 100px;
-  height: 22px;
+  white-space: nowrap;
+}
+
+.view > a {
   font-size: 10px;
   color: #c98686;
+  text-decoration: none;
 }
 
 .catTitle {
@@ -28,6 +33,10 @@
   font-size: 16px;
   color: #c98686;
   text-align: left;
+}
+
+.catTitle > h1:hover {
+  color: #c98686;
 }
 
 .cardContainer {

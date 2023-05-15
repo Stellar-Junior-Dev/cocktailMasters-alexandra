@@ -1,5 +1,6 @@
 import "./App.css";
 import { DetailsPage } from "./pages/details/Details";
+import { CategoryPage } from "./pages/categories/CategoryPage";
 import createStore from "./store";
 import {
   createBrowserRouter,
@@ -18,6 +19,10 @@ const router = createHashRouter([
   {
     path: "/cocktail/:id",
     element: <DetailsPage />,
+  },
+  {
+    path: "/category/:categoryId",
+    element: <CategoryPage />,
   },
 ]);
 

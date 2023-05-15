@@ -16,9 +16,11 @@ export function HomePage() {
       <div className="content">
         {cocktailData.map((category) => (
           <Category
+            id={category.id}
             categoryTitle={category.categoryTitle}
             cocktails={category.cocktails}
             key={category.id}
+            source={"homepage"}
           />
         ))}
       </div>
