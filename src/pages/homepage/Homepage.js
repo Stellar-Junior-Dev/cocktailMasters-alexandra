@@ -20,6 +20,7 @@ export function HomePage() {
             categoryTitle={category.categoryTitle}
             cocktails={category.cocktails}
             key={category.id}
+            source={"homepage"}
           />
         ))}
       </div>
