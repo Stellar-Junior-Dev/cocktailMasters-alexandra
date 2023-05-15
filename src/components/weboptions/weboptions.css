@@ -1,0 +1,27 @@
+.weboptions {
+  width: 55%;
+  float: right;
+  display: flex;
+  justify-content: space-evenly;
+  margin-right: 1%;
+}
+
+.categories {
+  width: 95%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.categories > a {
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  color: #c98686;
+  text-decoration: none;
+}
+
+.websearch > img {
+  right: 0;
+  width: 25px;
+}
