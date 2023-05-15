@@ -1,10 +1,8 @@
 import "./card.css";
 import heart from "../../img/heart.svg";
 import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
 
 export function Card({ cocktail, className }) {
-  const dispatch = useDispatch();
   return (
     <Link
       to={`/cocktail/${cocktail.id}`}

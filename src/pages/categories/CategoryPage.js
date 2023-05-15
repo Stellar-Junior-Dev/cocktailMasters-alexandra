@@ -1,6 +1,5 @@
 import { Controls } from "../../components/controls/Controls";
 import { Category } from "../../components/category/Category";
-import { Card } from "../../components/card/Card";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { useParams } from "react-router";

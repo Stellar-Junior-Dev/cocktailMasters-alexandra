@@ -38,6 +38,10 @@
   text-decoration: none;
 }
 
+.opt > a:hover {
+  opacity: 1;
+}
+
 .close {
   float: right;
   margin-top: 24px;

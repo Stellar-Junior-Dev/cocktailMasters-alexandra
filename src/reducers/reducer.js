@@ -148,7 +148,7 @@ const initialState = {
 
     {
       categoryTitle: "RANDOM DRINKS",
-      id: 3,
+      id: 2,
       cocktails: [
         {
           image: require("../img/cocktail.jpeg"),
