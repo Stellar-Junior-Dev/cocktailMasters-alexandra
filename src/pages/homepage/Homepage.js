@@ -6,6 +6,7 @@ import { selectCocktailData } from "../../selectors/selectCocktailData";
 
 export function HomePage() {
   const cocktailData = useSelector(selectCocktailData);
+
   return (
     <div>
       <Controls />

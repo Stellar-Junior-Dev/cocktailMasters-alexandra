@@ -198,6 +198,7 @@ const initialState = {
   nextId: undefined,
   searchResults: [],
   selectedCategory: undefined,
+  popupOpen: "",
 };
 
 export default function rootReducer(state = initialState, action) {
@@ -269,6 +270,20 @@ export default function rootReducer(state = initialState, action) {
       return {
         ...state,
         selectedCategory: category,
+      };
+
+    case "TOGGLE_POPUP":
+      let value = action.payload.value;
+      const popupName = action.payload.name;
+      if (value) {
+        return {
+          ...state,
+          popupOpen: popupName,
+        };
+      }
+      return {
+        ...state,
+        popupOpen: "",
       };
 
     default:

@@ -4,17 +4,22 @@ import copyright from "../../img/copyright.svg";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { selectCocktailData } from "../../selectors/selectCocktailData";
+import { POPUP_NAME } from "../../utils/popupNames";
 
-export function Options({ open, toggleOpen }) {
+export function Options({ open }) {
   const dispatch = useDispatch();
   const cocktailData = useSelector(selectCocktailData);
+
   return (
     <div className={`options-background ${!open ? "hide-options" : ""}`}>
       <div className="overlay">
         <div
           className="close"
           onClick={() => {
-            toggleOpen(false);
+            dispatch({
+              type: "TOGGLE_POPUP",
+              payload: { name: POPUP_NAME.OPTIONS, value: false },
+            });
           }}
         >
           <img src={x} alt="Close icon" />
@@ -23,7 +28,10 @@ export function Options({ open, toggleOpen }) {
           <Link
             to={"/"}
             onClick={() => {
-              toggleOpen(false);
+              dispatch({
+                type: "TOGGLE_POPUP",
+                payload: { name: POPUP_NAME.OPTIONS, value: false },
+              });
             }}
           >
             HOME
@@ -38,7 +46,10 @@ export function Options({ open, toggleOpen }) {
                   type: "SET_CATEGORY",
                   payload: { id: category.id },
                 });
-                toggleOpen(false);
+                dispatch({
+                  type: "TOGGLE_POPUP",
+                  payload: { name: POPUP_NAME.OPTIONS, value: false },
+                });
               }}
             >
               {category.categoryTitle}
