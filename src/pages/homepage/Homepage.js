@@ -10,12 +10,14 @@ export function HomePage() {
   const cocktailData = useSelector(selectCocktailData);
   const mobile = isMobile();
   return (
-    <div>
-      {mobile && <Controls />}
-      {!mobile && <WebOptions />}
+    <>
+      <div className="info">
+        {mobile && <Controls />}
+        {!mobile && <WebOptions />}
 
-      <div className="title">
-        <h2>COCKTAIL MASTER</h2>
+        <div className="title">
+          <h2>COCKTAIL MASTER</h2>
+        </div>
       </div>
 
       <div className="content">
@@ -29,6 +31,6 @@ export function HomePage() {
           />
         ))}
       </div>
-    </div>
+    </>
   );
 }

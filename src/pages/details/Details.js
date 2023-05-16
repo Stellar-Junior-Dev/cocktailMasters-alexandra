@@ -11,6 +11,9 @@ import {
   selectCocktailNeighbours,
   selectSelectedCocktail,
 } from "../../selectors/selectCocktailData";
+import { CardImage } from "../../components/cardimage/CardImage";
+import Tags from "../../components/tags/Tags";
+import { CocktailNav } from "../../components/cocktailnav/CocktailNav";
 
 export function DetailsPage() {
   let { id } = useParams();
@@ -38,33 +41,15 @@ export function DetailsPage() {
   return (
     !!cocktail && (
       <div className="detailspage">
-        <div
-          className="cocktail-image-details"
+        <CardImage
           onClick={() => {
             setIsScrolled(false);
           }}
-        >
-          <div className="navigation-top-buttons">
-            <div className="buttonElement">
-              <img
-                src={back}
-                onClick={() => {
-                  navigate("/");
-                }}
-              />
-            </div>
-            <div className="buttonElement">
-              <img src={heart} />
-            </div>
-          </div>
-          <img
-            src={cocktail?.image}
-            alt="cocktail-image"
-            onLoad={(e) =>
-              setHeaderHeight(e.target.getBoundingClientRect().height)
-            }
-          />
-        </div>
+          onLoad={(e) =>
+            setHeaderHeight(e.target.getBoundingClientRect().height)
+          }
+          image={cocktail?.image}
+        />
 
         <div
           className="cocktail-container"
@@ -95,43 +80,10 @@ export function DetailsPage() {
           <div className="cocktail-title">
             <p className="cocktail-title-text">{cocktail?.name}</p>
           </div>
-          <div className="cocktail-tags">
-            {cocktail?.tags.map((tag) => (
-              <div key={tag} className="tag">
-                <p className="tag-text">{tag}</p>
-              </div>
-            ))}
-          </div>
+          <Tags tags={cocktail?.tags} />
           <Ingredient ingredients={cocktail?.ingredients} />
           <Instructions instructions={cocktail?.instructions} />
-          <div className="details-options-container">
-            {prevId != undefined ? (
-              <div className="navigation-btn">
-                <div
-                  onClick={() => {
-                    navigate(`/cocktail/${prevId}`);
-                  }}
-                >
-                  {"<"} previous{" "}
-                </div>
-              </div>
-            ) : (
-              <div></div>
-            )}
-            {nextId != undefined ? (
-              <div className="navigation-btn">
-                <div
-                  onClick={() => {
-                    navigate(`/cocktail/${nextId}`);
-                  }}
-                >
-                  next {">"}{" "}
-                </div>
-              </div>
-            ) : (
-              <div></div>
-            )}
-          </div>
+          <CocktailNav prevId={prevId} nextId={nextId} />
         </div>
       </div>
     )

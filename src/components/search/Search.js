@@ -3,18 +3,19 @@ import x from "../../img/x.svg";
 import searchicon from "../../img/search.svg";
 import noresults from "../../img/nores.svg";
 import { Card } from "../card/Card";
-
+import { isMobile } from "../../selectors/selectCocktailData";
 import { useDispatch, useSelector } from "react-redux";
 import { selectSearchResults } from "../../selectors/selectCocktailData";
 import { useEffect, useState } from "react";
 import { POPUP_NAME } from "../../utils/popupNames";
+import Input from "../input/Input";
 
 export function Search({ open }) {
   const dispatch = useDispatch();
 
   const searchResults = useSelector(selectSearchResults);
   const [searchValue, setSearchValue] = useState("");
-
+  const mobile = isMobile();
   useEffect(() => {
     return () => {
       dispatch({
@@ -26,48 +27,43 @@ export function Search({ open }) {
   return (
     <div className={`search-background ${!open ? "hide-search" : ""}`}>
       <div className="search-content">
-        <div
-          className="close"
-          onClick={() => {
-            dispatch({
-              type: "SEARCH",
-              payload: { searchParam: "" },
-            });
-            setSearchValue("");
-            dispatch({
-              type: "TOGGLE_POPUP",
-              payload: { name: POPUP_NAME.OPTIONS, value: false },
-            });
-          }}
-        >
-          <img src={x} alt="Close icon"></img>
-        </div>
+        {mobile && (
+          <div
+            className="close-search"
+            onClick={() => {
+              dispatch({
+                type: "SEARCH",
+                payload: { searchParam: "" },
+              });
+              setSearchValue("");
+              dispatch({
+                type: "TOGGLE_POPUP",
+                payload: { name: POPUP_NAME.OPTIONS, value: false },
+              });
+            }}
+          >
+            <img src={x} alt="Close icon"></img>
+          </div>
+        )}
 
         <div className="search-title">
           <h2>SEARCH</h2>
         </div>
-        <div className="form-div>">
-          <form className="search-form">
-            <input
-              value={searchValue}
-              className="search-input"
-              type="text"
-              id="search"
-              name="search"
-              placeholder="TYPE HERE"
-              onChange={(e) => {
-                setSearchValue(e.target.value);
-                dispatch({
-                  type: "SEARCH",
-                  payload: { searchParam: e.target.value },
-                });
-              }}
-            />
-            <div className="submit-btn" type="submit">
-              <img src={searchicon} alt="Search icon" />
-            </div>
-          </form>
-        </div>
+        {mobile && (
+          <Input
+            icon={searchicon}
+            value={searchValue}
+            className="search-input"
+            placeholder="TYPE HERE"
+            onChange={(e) => {
+              setSearchValue(e.target.value);
+              dispatch({
+                type: "SEARCH",
+                payload: { searchParam: e.target.value },
+              });
+            }}
+          />
+        )}
 
         <div className="results-container">
           <div className="results-text">
