@@ -1,0 +1,24 @@
+.cocktail-tags {
+  box-sizing: border-box;
+  padding: 0 16px;
+  position: relative;
+  width: 100%;
+  display: flex;
+  overflow-x: scroll;
+}
+
+.tag {
+  position: relative;
+  flex-shrink: 0;
+  margin: 9px 9px;
+  height: 24px;
+  border-radius: 8px;
+  background: #fff4ec;
+}
+.tag-text {
+  margin: 0;
+  margin-left: 10px;
+  margin-right: 10px;
+  text-align: center;
+  color: #966b9d;
+}

@@ -6,16 +6,19 @@ import { HashRouter, Route, Routes } from "react-router-dom";
 import { Provider } from "react-redux";
 import { HomePage } from "./pages/homepage/Homepage";
 import { PopupWrapper } from "./components/popupWrapper/popupWrapper";
+import { isMobile } from "../src/selectors/selectCocktailData";
 
 const { store } = createStore();
+
 function App() {
+  const mobile = isMobile();
   return (
     <Provider store={store}>
       <HashRouter>
         <PopupWrapper />
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/cocktail/:id" element={<DetailsPage />} />
+          {mobile && <Route path="/cocktail/:id" element={<DetailsPage />} />}
           <Route path="/category/:categoryId" element={<CategoryPage />} />
         </Routes>
       </HashRouter>

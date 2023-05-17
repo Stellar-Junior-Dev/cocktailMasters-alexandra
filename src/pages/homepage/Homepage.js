@@ -3,15 +3,21 @@ import { Controls } from "../../components/controls/Controls";
 import { useSelector } from "react-redux";
 import "./homepage.css";
 import { selectCocktailData } from "../../selectors/selectCocktailData";
+import { isMobile } from "../../selectors/selectCocktailData";
+import { WebOptions } from "../../components/weboptions/WebOptions";
 
 export function HomePage() {
   const cocktailData = useSelector(selectCocktailData);
-
+  const mobile = isMobile();
   return (
-    <div>
-      <Controls />
-      <div className="title">
-        <h2>COCKTAIL MASTER</h2>
+    <>
+      <div className="info">
+        {mobile && <Controls />}
+        {!mobile && <WebOptions />}
+
+        <div className="title">
+          <h2>COCKTAIL MASTER</h2>
+        </div>
       </div>
 
       <div className="content">
@@ -25,6 +31,6 @@ export function HomePage() {
           />
         ))}
       </div>
-    </div>
+    </>
   );
 }

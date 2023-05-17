@@ -7,3 +7,4 @@ export const selectCocktailNeighbours = (state) => ({
 export const selectSearchResults = (state) => state.searchResults;
 export const selectSelectedCategory = (state) => state.selectedCategory;
 export const selectOpenPopup = (state) => state.popupOpen;
+export const isMobile = () => window.innerWidth < 768;

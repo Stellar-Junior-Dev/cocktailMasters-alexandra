@@ -1,8 +1,10 @@
 import "./card.css";
 import heart from "../../img/heart.svg";
 import { Link } from "react-router-dom";
+import { isMobile } from "../../selectors/selectCocktailData";
 
 export function Card({ cocktail, className }) {
+  const mobile = isMobile();
   return (
     <Link
       to={`/cocktail/${cocktail.id}`}
