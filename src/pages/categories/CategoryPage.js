@@ -1,5 +1,6 @@
 import { Controls } from "../../components/controls/Controls";
 import { Category } from "../../components/category/Category";
+import { WebOptions } from "../../components/weboptions/WebOptions";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { useParams } from "react-router";
@@ -22,10 +23,13 @@ export function CategoryPage() {
     !!category && (
       <>
         {mobile && <Controls />}
-        {mobile && (
+        
           <div className="title">
             <h2>COCKTAIL MASTER</h2>
           </div>
+        
+        {!mobile && (
+          <WebOptions source={"cat-page"}/>
         )}
         <div className="content">
           <Category
@@ -33,6 +37,7 @@ export function CategoryPage() {
             id={category.categoryId}
             categoryTitle={category.categoryTitle}
             cocktails={category.cocktails}
+            source={"cat-page"}
           />
         </div>
       </>

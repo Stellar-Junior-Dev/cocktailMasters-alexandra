@@ -34,3 +34,15 @@
   right: 0;
   width: 25px;
 }
+
+.weboptions.cat-page {
+  position: absolute;
+  width: 55%;
+  float: right;
+  display: flex;
+  justify-content: space-evenly;
+  margin-right: 1%;
+  right: 0;
+  align-items: center;
+  top:0;
+}

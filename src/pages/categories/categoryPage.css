@@ -3,7 +3,7 @@
   flex-wrap: wrap;
   margin: auto;
   width: 92%;
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 
 .category-page .card {

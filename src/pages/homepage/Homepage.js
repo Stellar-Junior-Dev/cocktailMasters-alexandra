@@ -13,7 +13,7 @@ export function HomePage() {
     <>
       <div className="info">
         {mobile && <Controls />}
-        {!mobile && <WebOptions />}
+        {!mobile && <WebOptions source={"homepage"} />}
 
         <div className="title">
           <h2>COCKTAIL MASTER</h2>

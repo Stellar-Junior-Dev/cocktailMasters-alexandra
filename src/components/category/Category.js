@@ -4,14 +4,15 @@ import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 export function Category({ categoryTitle, cocktails, id, className, source }) {
   const dispatch = useDispatch();
+  console.log(source);
   return (
     <>
-      <div className="category">
+      <div className={`category ${source==="cat-page" ? "cat-page" : ""}`}>
         <div className="catDetails">
           <div className="catTitle">
             <h1>{categoryTitle}</h1>
           </div>
-          {source && (
+          {source==="homepage" && (
             <div className="view">
               <Link
                 to={`/category/${id}`}
