@@ -19,7 +19,7 @@ export function WebOptions() {
   return (
     <div className="weboptions">
       <div className="categories">
-        {open && (
+        {open === POPUP_NAME.SEARCH && (
           <Input
             icon={searchicon}
             value={searchValue}
@@ -35,8 +35,8 @@ export function WebOptions() {
           />
         )}
 
-        {!open && <Link to="/">HOME</Link>}
-        {!open &&
+        {open !== POPUP_NAME.SEARCH && <Link to="/">HOME</Link>}
+        {open !== POPUP_NAME.SEARCH &&
           cocktailData.map((category) => (
             <Link
               key={category.id}
@@ -61,9 +61,9 @@ export function WebOptions() {
           });
         }}
       >
-        {!open && <img src={search} alt="search" />}
+        {open !== POPUP_NAME.SEARCH && <img src={search} alt="search" />}
       </div>
-      {open && (
+      {open === POPUP_NAME.SEARCH && (
         <div
           className="close-search"
           onClick={() => {

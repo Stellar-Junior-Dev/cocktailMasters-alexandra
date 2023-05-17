@@ -52,13 +52,8 @@
   width: 12px;
 }
 
-@media screen and (max-width: 389px) {
-  .results-content {
+@media screen and (max-width: 390px) {
+  .category-page {
     justify-content: center;
-  }
-}
-@media screen and (min-width: 500px) {
-  .results-content {
-    width: 80%;
   }
 }

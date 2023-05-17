@@ -38,7 +38,7 @@ export function Search({ open }) {
               setSearchValue("");
               dispatch({
                 type: "TOGGLE_POPUP",
-                payload: { name: POPUP_NAME.OPTIONS, value: false },
+                payload: { name: POPUP_NAME.SEARCH, value: false },
               });
             }}
           >

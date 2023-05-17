@@ -1,0 +1,39 @@
+.card-background {
+  position: fixed;
+  z-index: 7;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  background-color: rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.card-background.hide-card {
+  background-color: transparent;
+  display: none;
+}
+.popup-details {
+  background-color: rgba(150, 107, 157, 1);
+  border-radius: 8px;
+  z-index: 7;
+  pointer-events: all;
+  width: 70%;
+  padding-bottom: 3%;
+  height: fit-content;
+  filter: drop-shadow(0px 0px 20px rgba(0, 0, 0, 0.5));
+  display: flex;
+}
+
+.popup-details.hide-card {
+  display: none;
+}
+.first {
+  width: 50%;
+  height: fit-content;
+}
+.second {
+  width: 50%;
+}

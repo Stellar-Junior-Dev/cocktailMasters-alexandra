@@ -5,6 +5,7 @@ import { Search } from "../search/Search";
 import { Options } from "../options/Options";
 import { POPUP_NAME } from "../../utils/popupNames";
 import { isMobile } from "../../selectors/selectCocktailData";
+import { CardModal } from "../cardModal/CardModal";
 
 export function PopupWrapper() {
   const open = useSelector(selectOpenPopup);
@@ -13,6 +14,7 @@ export function PopupWrapper() {
     <>
       <Search open={open === POPUP_NAME.SEARCH} />
       {mobile && <Options open={open === POPUP_NAME.OPTIONS} />}
+      {!mobile && <CardModal open={open === POPUP_NAME.CARD} />}
     </>
   );
 }
