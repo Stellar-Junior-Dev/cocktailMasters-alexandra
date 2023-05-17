@@ -5,10 +5,11 @@ import { useEffect } from "react";
 import { useParams } from "react-router";
 import { selectSelectedCategory } from "../../selectors/selectCocktailData";
 import "./categoryPage.css";
-
+import { isMobile } from "../../selectors/selectCocktailData";
 export function CategoryPage() {
   const dispatch = useDispatch();
   const category = useSelector(selectSelectedCategory);
+  const mobile = isMobile();
   let { categoryId } = useParams();
   useEffect(() => {
     dispatch({
@@ -20,10 +21,12 @@ export function CategoryPage() {
   return (
     !!category && (
       <>
-        <Controls />
-        <div className="title">
-          <h2>COCKTAIL MASTER</h2>
-        </div>
+        {mobile && <Controls />}
+        {mobile && (
+          <div className="title">
+            <h2>COCKTAIL MASTER</h2>
+          </div>
+        )}
         <div className="content">
           <Category
             className="category-page"

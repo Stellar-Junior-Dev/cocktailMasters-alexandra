@@ -57,3 +57,20 @@
     justify-content: center;
   }
 }
+
+@media screen and (min-width: 768px) {
+  .category-page .card {
+    margin: 24px;
+    height: 212px;
+    width: 212px;
+    background-color: blueviolet;
+    flex-shrink: 0;
+    background-size: cover;
+    position: relative;
+    border-radius: 8px;
+  }
+
+  .category-page {
+    justify-content: flex-start;
+  }
+}
