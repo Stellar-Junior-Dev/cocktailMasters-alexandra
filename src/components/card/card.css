@@ -56,3 +56,9 @@
   width: 6px;
   z-index: 1;
 }
+
+@media screen and (min-width: 768px) {
+  .card {
+    flex-shrink: 1;
+  }
+}
