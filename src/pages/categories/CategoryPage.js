@@ -7,6 +7,7 @@ import { useParams } from "react-router";
 import { selectSelectedCategory } from "../../selectors/selectCocktailData";
 import "./categoryPage.css";
 import { isMobile } from "../../selectors/selectCocktailData";
+import { Link } from "react-router-dom";
 export function CategoryPage() {
   const dispatch = useDispatch();
   const category = useSelector(selectSelectedCategory);
@@ -23,15 +24,14 @@ export function CategoryPage() {
     !!category && (
       <>
         {mobile && <Controls />}
-        
-          <div className="title">
+        <div className="info">
+          <Link to={"/"} className="title">
             <h2>COCKTAIL MASTER</h2>
-          </div>
-        
-        {!mobile && (
-          <WebOptions source={"cat-page"}/>
-        )}
-        <div className="content">
+          </Link>
+
+          {!mobile && <WebOptions source={"cat-page"} />}
+        </div>
+        <div className="content category">
           <Category
             className="category-page"
             id={category.categoryId}

@@ -5,6 +5,7 @@ import "./homepage.css";
 import { selectCocktailData } from "../../selectors/selectCocktailData";
 import { isMobile } from "../../selectors/selectCocktailData";
 import { WebOptions } from "../../components/weboptions/WebOptions";
+import { Link } from "react-router-dom";
 
 export function HomePage() {
   const cocktailData = useSelector(selectCocktailData);
@@ -15,9 +16,9 @@ export function HomePage() {
         {mobile && <Controls />}
         {!mobile && <WebOptions source={"homepage"} />}
 
-        <div className="title">
+        <Link to={"/"} className="title">
           <h2>COCKTAIL MASTER</h2>
-        </div>
+        </Link>
       </div>
 
       <div className="content">

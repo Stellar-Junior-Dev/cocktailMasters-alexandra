@@ -11,14 +11,13 @@ import { useState } from "react";
 import { selectOpenPopup } from "../../selectors/selectCocktailData";
 import Input from "../input/Input";
 
-export function WebOptions({source}) {
-  console.log(source);
+export function WebOptions({ source }) {
   const open = useSelector(selectOpenPopup);
   const [searchValue, setSearchValue] = useState("");
   const dispatch = useDispatch();
   const cocktailData = useSelector(selectCocktailData);
   return (
-    <div className={`weboptions ${source==="cat-page" ? "cat-page" : ""}`}>
+    <div className={`weboptions ${source === "cat-page" ? "cat-page" : ""}`}>
       <div className="categories">
         {open === POPUP_NAME.SEARCH && (
           <Input

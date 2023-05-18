@@ -25,6 +25,7 @@
   background: #fff4ec;
   transition: all 0.3s ease-in-out;
   pointer-events: all;
+  overflow: hidden;
 }
 
 .search-title {
@@ -85,6 +86,7 @@
 
 .hide-search .search-content {
   transform: translateY(100%);
+  max-height: 0vh;
 }
 
 .search-card {

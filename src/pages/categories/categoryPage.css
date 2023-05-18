@@ -72,5 +72,9 @@
 
   .category-page {
     justify-content: flex-start;
+    margin: 0px;
+  }
+  .content.category {
+    margin-top: 230px;
   }
 }

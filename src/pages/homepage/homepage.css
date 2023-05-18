@@ -4,12 +4,19 @@
   width: 40%;
   margin-left: 24px;
   margin-top: 48px;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .title > h2 {
   font-size: 40px;
   line-height: 54px;
   color: #c98686;
+  padding-left: 24px;
+}
+
+.info {
+  padding-bottom: 2%;
 }
 
 @media only screen and (min-width: 768px) {
@@ -22,12 +29,24 @@
     align-items: center;
     margin-bottom: 10px;
     background-color: #fff4ec;
+    height: 11vh;
   }
 
   .title {
     margin-top: 0px;
   }
+
+  .title > h2 {
+    padding-left: 0px;
+  }
   .content {
     margin-top: 130px;
+  }
+}
+
+@media only screen and (min-width: 769px) and (max-width: 937px) {
+  .title > h2 {
+    margin-top: 1%;
+    margin-bottom: 1%;
   }
 }

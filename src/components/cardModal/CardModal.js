@@ -1,6 +1,6 @@
 import { POPUP_NAME } from "../../utils/popupNames";
 import { CardImage } from "../cardimage/CardImage";
-import "./cardmodal.css";
+
 import { useDispatch, useSelector } from "react-redux";
 import {
   selectCocktailNeighbours,
@@ -10,6 +10,7 @@ import Tags from "../tags/Tags";
 import { Ingredient } from "../ingredients/Ingredients";
 import { Instructions } from "../instructions/Instructions";
 import { CocktailNav } from "../cocktailnav/CocktailNav";
+import "./cardmodal.css";
 
 export function CardModal({ open }) {
   const cocktail = useSelector(selectSelectedCocktail);

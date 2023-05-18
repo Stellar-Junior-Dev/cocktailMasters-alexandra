@@ -19,6 +19,7 @@
 }
 
 .buttonElement {
+  cursor: pointer;
   width: 52px;
   display: flex;
   justify-content: center;

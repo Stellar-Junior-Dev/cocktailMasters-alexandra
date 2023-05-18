@@ -29,6 +29,7 @@
   display: inline;
 }
 .instructions-language {
+  cursor: pointer;
   margin-top: 2%;
   margin-left: 2%;
 }
