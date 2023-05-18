@@ -2,7 +2,7 @@
   display: flex;
   flex-wrap: wrap;
   margin: auto;
-  width: 92%;
+  width: 100%;
   justify-content: flex-start;
 }
 
