@@ -29,8 +29,7 @@
 }
 
 .hide-card .popup-details {
-  opacity: 0;
-  animation: fade-out 1s ease forwards;
+  animation: bounce 1s ease forwards;
   pointer-events: none;
 }
 .first {
@@ -61,6 +60,7 @@
 @keyframes bounce {
   0% {
     transform: translate(0, 0);
+    opacity: 1;
   }
   25% {
     transform: translate(-50px, 20px);
@@ -73,6 +73,7 @@
   }
   100% {
     transform: translate(0, 0);
+    opacity: 0;
   }
 }
 

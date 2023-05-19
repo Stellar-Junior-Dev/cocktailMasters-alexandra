@@ -25,9 +25,9 @@ export function CategoryPage() {
       <>
         {mobile && <Controls />}
         <div className="info">
-          <Link to={"/"} className="title">
-            <h2>COCKTAIL MASTER</h2>
-          </Link>
+          <div className="title">
+            <Link to={"/"}>COCKTAIL MASTER</Link>
+          </div>
 
           {!mobile && <WebOptions source={"cat-page"} />}
         </div>

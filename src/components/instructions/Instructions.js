@@ -1,9 +1,16 @@
 import "./instructions.css";
-import en from "../../img/en.svg";
-import es from "../../img/es.svg";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 export function Instructions({ instructions }) {
-  const [selectedLanguage, setSelectedLanguage] = useState("en");
+  const [selectedLanguage, setSelectedLanguage] = useState(
+    instructions[0].language
+  );
+  const language = instructions.find(
+    (instruction) => instruction.language === selectedLanguage
+  );
+  useEffect(() => {
+    setSelectedLanguage(instructions[0].language);
+  }, [instructions]);
+
   return (
     <div className="instructions-container">
       <div className="instructions-title">
@@ -21,13 +28,7 @@ export function Instructions({ instructions }) {
             />
           ))}
         </div>
-        <p className="instructions-text">
-          {
-            instructions.find(
-              (instruction) => instruction.language === selectedLanguage
-            ).text
-          }
-        </p>
+        <p className="instructions-text">{!!language && language.text}</p>
         <h2 className="instructions-glass-title">GLASS</h2>
         <p className="instructions-text">Serve: Old-fashioned glass</p>
       </div>

@@ -67,7 +67,10 @@ export function Search({ open }) {
 
         <div className="results-container">
           <div className="results-text">
-            <h2>RESULTS</h2>
+            <h2 className="res-txt">RESULTS</h2>
+            {searchResults.length > 0 && (
+              <h2 className="res-txt">{searchResults.length} matches</h2>
+            )}
           </div>
 
           <div className="results-content">

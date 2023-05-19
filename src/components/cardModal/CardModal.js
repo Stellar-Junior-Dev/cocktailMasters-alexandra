@@ -11,11 +11,13 @@ import { Ingredient } from "../ingredients/Ingredients";
 import { Instructions } from "../instructions/Instructions";
 import { CocktailNav } from "../cocktailnav/CocktailNav";
 import "./cardmodal.css";
+import { useEffect } from "react";
 
 export function CardModal({ open }) {
   const cocktail = useSelector(selectSelectedCocktail);
   const dispatch = useDispatch();
   const { nextId, prevId } = useSelector(selectCocktailNeighbours);
+
   return (
     !!cocktail && (
       <div className={`card-background ${!open ? "hide-card" : ""}`}>
