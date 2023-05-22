@@ -14,12 +14,12 @@ export function HomePage() {
   const [scrollTop, setScrollTop] = useState(0);
   useEffect(() => {
     document.body.onscroll = (e) => {
-      console.log("sall", e);
+      setScrollTop(e.currentTarget.pageYOffset);
     };
   }, []);
   return (
     <div className="homepage">
-      <div className="info">
+      <div className={`info ${scrollTop > 10 ? "scrolled" : ""}`}>
         {mobile && <Controls />}
         {!mobile && <WebOptions source={"homepage"} />}
 

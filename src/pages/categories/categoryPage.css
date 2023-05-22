@@ -4,6 +4,7 @@
   margin: auto;
   width: 100%;
   justify-content: flex-start;
+  margin: auto;
 }
 
 .category-page .card {
@@ -52,7 +53,7 @@
   width: 12px;
 }
 
-@media screen and (max-width: 390px) {
+@media screen and (max-width: 359px) {
   .category-page {
     justify-content: center;
   }

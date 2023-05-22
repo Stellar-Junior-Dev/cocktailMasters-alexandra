@@ -32,6 +32,11 @@
     margin-bottom: 10px;
     background-color: #fff4ec;
     height: 11vh;
+    max-height: 121px;
+  }
+
+  .info.scrolled {
+    filter: drop-shadow(0px 0px 20px rgba(0, 0, 0, 0.5));
   }
 
   .title {

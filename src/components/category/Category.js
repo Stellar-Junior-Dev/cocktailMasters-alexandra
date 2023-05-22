@@ -25,7 +25,7 @@ export function Category({ categoryTitle, cocktails, id, className, source }) {
           )}
         </div>
 
-        <div className={className ? className : "cardContainer"}>
+        <div className={`cardContainer ${className ? className : ""}`}>
           {cocktails.map((cocktail) => (
             <Card
               key={cocktail.id}
