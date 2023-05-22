@@ -8,12 +8,19 @@ import { selectSelectedCategory } from "../../selectors/selectCocktailData";
 import "./categoryPage.css";
 import { isMobile } from "../../selectors/selectCocktailData";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import { selectOpenPopup } from "../../selectors/selectCocktailData";
 export function CategoryPage() {
+  const open = useSelector(selectOpenPopup);
   const dispatch = useDispatch();
   const category = useSelector(selectSelectedCategory);
   const mobile = isMobile();
   let { categoryId } = useParams();
+  const [scrollTop, setScrollTop] = useState(0);
   useEffect(() => {
+    document.body.onscroll = (e) => {
+      setScrollTop(e.currentTarget.pageYOffset);
+    };
     dispatch({
       type: "SET_CATEGORY",
       payload: { id: categoryId },
@@ -24,7 +31,7 @@ export function CategoryPage() {
     !!category && (
       <>
         {mobile && <Controls />}
-        <div className="info">
+        <div className={`info ${scrollTop > 10 && !open ? "scrolled" : ""}`}>
           <div className="title">
             <Link to={"/"}>COCKTAIL MASTER</Link>
           </div>

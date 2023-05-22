@@ -25,11 +25,11 @@
   height: fit-content;
   filter: drop-shadow(0px 0px 20px rgba(0, 0, 0, 0.5));
   display: flex;
-  animation: rotate-scale 2s ease;
+  animation: rotate-scale 1.5s ease;
 }
 
 .hide-card .popup-details {
-  animation: bounce 1s ease forwards;
+  animation: twerk 0.5s ease forwards;
   pointer-events: none;
 }
 .first {
@@ -92,6 +92,7 @@
   }
   100% {
     transform: translateY(0) rotate(0);
+    opacity: 0;
   }
 }
 
