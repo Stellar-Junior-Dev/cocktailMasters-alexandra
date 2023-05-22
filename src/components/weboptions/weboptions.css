@@ -10,7 +10,8 @@
 }
 
 .categories {
-  width: 95%;
+  width: 100%;
+  white-space: nowrap;
   display: flex;
   justify-content: space-evenly;
 }
@@ -33,4 +34,24 @@
 .websearch > img {
   right: 0;
   width: 25px;
+}
+
+.weboptions.cat-page {
+  position: absolute;
+  width: 55%;
+  float: right;
+  display: flex;
+  justify-content: space-evenly;
+  margin-right: 1%;
+  right: 0;
+  align-items: center;
+}
+
+@media only screen and (max-width: 937px) {
+  .weboptions {
+    width: 70%;
+  }
+  .weboptions.cat-page {
+    width: 70%;
+  }
 }

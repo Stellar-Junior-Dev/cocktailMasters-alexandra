@@ -6,12 +6,12 @@ export function Category({ categoryTitle, cocktails, id, className, source }) {
   const dispatch = useDispatch();
   return (
     <>
-      <div className="category">
+      <div className={`category ${source === "cat-page" ? "cat-page" : ""}`}>
         <div className="catDetails">
           <div className="catTitle">
             <h1>{categoryTitle}</h1>
           </div>
-          {source && (
+          {source === "homepage" && (
             <div className="view">
               <Link
                 to={`/category/${id}`}
@@ -25,7 +25,7 @@ export function Category({ categoryTitle, cocktails, id, className, source }) {
           )}
         </div>
 
-        <div className={className ? className : "cardContainer"}>
+        <div className={`cardContainer ${className ? className : ""}`}>
           {cocktails.map((cocktail) => (
             <Card
               key={cocktail.id}

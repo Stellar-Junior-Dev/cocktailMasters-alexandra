@@ -51,4 +51,7 @@
     flex-wrap: wrap;
     overflow-x: initial;
   }
+  .category.cat-page {
+    margin-top: -100px;
+  }
 }

@@ -73,7 +73,7 @@ export function DetailsPage() {
             // setScrollTop(scrollTop - e.target.scrollTop);
             // pentru fun
             if (e.target.scrollTop != 0) {
-              setIsScrolled(e.target.scrollTop > 10);
+              setIsScrolled(e.target.scrollTop > 0);
             }
           }}
         >

@@ -2,8 +2,9 @@
   display: flex;
   flex-wrap: wrap;
   margin: auto;
-  width: 92%;
-  justify-content: space-between;
+  width: 100%;
+  justify-content: flex-start;
+  margin: auto;
 }
 
 .category-page .card {
@@ -52,13 +53,29 @@
   width: 12px;
 }
 
-@media screen and (max-width: 389px) {
-  .results-content {
+@media screen and (max-width: 359px) {
+  .category-page {
     justify-content: center;
   }
 }
-@media screen and (min-width: 500px) {
-  .results-content {
-    width: 80%;
+
+@media screen and (min-width: 768px) {
+  .category-page .card {
+    margin: 24px;
+    height: 212px;
+    width: 212px;
+    background-color: blueviolet;
+    flex-shrink: 0;
+    background-size: cover;
+    position: relative;
+    border-radius: 8px;
+  }
+
+  .category-page {
+    justify-content: flex-start;
+    margin: 0px;
+  }
+  .content.category {
+    margin-top: 230px;
   }
 }

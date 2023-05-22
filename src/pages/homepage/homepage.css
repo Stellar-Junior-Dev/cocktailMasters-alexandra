@@ -1,15 +1,24 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@900&display=swap");
-
+.homepage {
+  overflow-y: scroll;
+}
 .title {
   width: 40%;
   margin-left: 24px;
   margin-top: 48px;
+  text-decoration: none;
 }
 
-.title > h2 {
+.title > a {
   font-size: 40px;
   line-height: 54px;
   color: #c98686;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.info {
+  padding-bottom: 2%;
 }
 
 @media only screen and (min-width: 768px) {
@@ -22,12 +31,29 @@
     align-items: center;
     margin-bottom: 10px;
     background-color: #fff4ec;
+    height: 11vh;
+    max-height: 121px;
+  }
+
+  .info.scrolled {
+    filter: drop-shadow(0px 0px 20px rgba(0, 0, 0, 0.5));
   }
 
   .title {
     margin-top: 0px;
   }
+
+  .title > a {
+    padding-left: 0px;
+  }
   .content {
     margin-top: 130px;
+  }
+}
+
+@media only screen and (min-width: 769px) and (max-width: 937px) {
+  .title > a {
+    margin-top: 1%;
+    margin-bottom: 1%;
   }
 }

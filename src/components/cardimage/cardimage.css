@@ -14,11 +14,12 @@
   box-sizing: border-box;
 }
 
-.cocktail-image-details > img {
+.cocktail-image {
   width: 100%;
 }
 
 .buttonElement {
+  cursor: pointer;
   width: 52px;
   display: flex;
   justify-content: center;
@@ -31,4 +32,35 @@
 .buttonElement > img {
   width: 22px;
   height: auto;
+}
+
+@media screen and (min-width: 768px) {
+  .cocktail-image {
+    width: 90%;
+    margin-left: 3%;
+    margin-top: 3%;
+  }
+
+  .navigation-top-buttons {
+    display: flex;
+    width: 90%;
+    justify-content: space-between;
+    padding: 16px 16px;
+    margin-top: 3%;
+    margin-left: 3%;
+  }
+  .buttonElement {
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    background: rgba(150, 107, 157, 0.8);
+    border-radius: 20px;
+  }
+
+  .buttonElement > img {
+    width: 20px;
+    height: auto;
+  }
 }

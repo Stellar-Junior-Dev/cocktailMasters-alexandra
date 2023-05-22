@@ -38,7 +38,7 @@ export function Search({ open }) {
               setSearchValue("");
               dispatch({
                 type: "TOGGLE_POPUP",
-                payload: { name: POPUP_NAME.OPTIONS, value: false },
+                payload: { name: POPUP_NAME.SEARCH, value: false },
               });
             }}
           >
@@ -67,7 +67,10 @@ export function Search({ open }) {
 
         <div className="results-container">
           <div className="results-text">
-            <h2>RESULTS</h2>
+            <h2 className="res-txt">RESULTS</h2>
+            {searchResults.length > 0 && (
+              <h2 className="res-txt">{searchResults.length} matches</h2>
+            )}
           </div>
 
           <div className="results-content">
