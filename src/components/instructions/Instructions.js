@@ -20,11 +20,11 @@ export function Instructions({ instructions }) {
         <div className="instructions-language-container">
           {instructions.map((instruction) => (
             <img
-              key={instruction.language}
+              key={instruction}
               className="instructions-language"
-              src={require(`../../img/${instruction.language}.svg`)}
-              alt={instruction.language}
-              onClick={() => setSelectedLanguage(instruction.language)}
+              src={require(`../../img/en.svg`)}
+              alt={instruction}
+              onClick={() => setSelectedLanguage(instruction)}
             />
           ))}
         </div>

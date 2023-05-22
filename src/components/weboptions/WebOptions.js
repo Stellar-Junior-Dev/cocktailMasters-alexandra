@@ -10,6 +10,7 @@ import searchicon from "../../img/search.svg";
 import { useState } from "react";
 import { selectOpenPopup } from "../../selectors/selectCocktailData";
 import Input from "../input/Input";
+import { searchAction } from "../../actions/search";
 
 export function WebOptions({ source }) {
   const open = useSelector(selectOpenPopup);
@@ -27,10 +28,7 @@ export function WebOptions({ source }) {
             placeholder="TYPE HERE"
             onChange={(e) => {
               setSearchValue(e.target.value);
-              dispatch({
-                type: "SEARCH",
-                payload: { searchParam: e.target.value },
-              });
+              searchAction(e.target.value)(dispatch);
             }}
           />
         )}

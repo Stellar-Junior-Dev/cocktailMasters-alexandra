@@ -23,16 +23,22 @@ export function CardModal({ open }) {
       <div className={`card-background ${!open ? "hide-card" : ""}`}>
         <div className="popup-details">
           <div className="first">
-            <CardImage image={cocktail?.image} />
-            <Tags tags={cocktail?.tags} />
+            <CardImage image={cocktail?.strDrinkThumb} />
+            <Tags tags={(cocktail?.strTags ?? []).split(",")} />
             <div className="cocktail-title">
               <p className="cocktail-title-text">{cocktail?.name}</p>
             </div>
-            <CocktailNav prevId={prevId} nextId={nextId} />
+            {/* <CocktailNav prevId={prevId} nextId={nextId} /> */}
           </div>
           <div className="second">
-            <Ingredient ingredients={cocktail?.ingredients} />
-            <Instructions instructions={cocktail?.instructions} />
+            {/* <Ingredient ingredients={cocktail?.ingredients} /> */}
+            <Instructions
+              instructions={[
+                cocktail?.strInstructions,
+                cocktail?.strInstructionsDE,
+                cocktail?.strInstructionsES,
+              ]}
+            />
           </div>
         </div>
       </div>

@@ -9,6 +9,7 @@ import { selectSearchResults } from "../../selectors/selectCocktailData";
 import { useEffect, useState } from "react";
 import { POPUP_NAME } from "../../utils/popupNames";
 import Input from "../input/Input";
+import { searchAction } from "../../actions/search";
 
 export function Search({ open }) {
   const dispatch = useDispatch();
@@ -57,10 +58,7 @@ export function Search({ open }) {
             placeholder="TYPE HERE"
             onChange={(e) => {
               setSearchValue(e.target.value);
-              dispatch({
-                type: "SEARCH",
-                payload: { searchParam: e.target.value },
-              });
+              searchAction(e.target.value)(dispatch);
             }}
           />
         )}
