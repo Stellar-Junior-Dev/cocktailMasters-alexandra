@@ -19,6 +19,7 @@ export function CardImage({ image, onClick, onLoad }) {
           <div className="buttonElement">
             <img
               src={back}
+              alt="back"
               onClick={() => {
                 navigate(-1);
               }}
@@ -29,6 +30,7 @@ export function CardImage({ image, onClick, onLoad }) {
           <div className="buttonElement">
             <img
               src={back}
+              alt="back"
               onClick={() => {
                 dispatch({
                   type: "TOGGLE_POPUP",
