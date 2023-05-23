@@ -25,7 +25,6 @@
   background: #fff4ec;
   transition: all 0.3s ease-in-out;
   pointer-events: all;
-  overflow: hidden;
 }
 
 .search-title {
@@ -68,13 +67,20 @@
   margin-right: 24px;
   cursor: pointer;
 }
-
+.results-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
 .results-content {
   display: flex;
   flex-wrap: wrap;
   margin: auto;
   width: 92%;
   justify-content: space-between;
+  overflow: scroll;
+  margin-top: unset;
 }
 
 .no-result {
@@ -177,7 +183,6 @@
     border-radius: 0px 0px 16px 16px;
     top: 90px;
     width: 100%;
-    height: fit-content;
     padding-bottom: 2%;
     position: fixed;
     z-index: 2;

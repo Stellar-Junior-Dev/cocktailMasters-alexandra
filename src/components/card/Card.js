@@ -9,11 +9,18 @@ export function Card({ cocktail, className }) {
   console.log(cocktail);
   const mobile = isMobile();
   const dispatch = useDispatch();
+
   return (
     <>
       {mobile && (
         <Link
           to={`/cocktail/${cocktail.idDrink}`}
+          onClick={() => {
+            dispatch({
+              type: "TOGGLE_POPUP",
+              payload: { name: POPUP_NAME.CARD, value: false },
+            });
+          }}
           className={className ? className : "card"}
           style={{ backgroundImage: `url(${cocktail.strDrinkThumb})` }}
         >

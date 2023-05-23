@@ -23,6 +23,7 @@ export function Search({ open }) {
         type: "SEARCH",
         payload: { searchParam: "" },
       });
+      setSearchValue("");
     };
   }, []);
   return (
@@ -58,7 +59,13 @@ export function Search({ open }) {
             placeholder="TYPE HERE"
             onChange={(e) => {
               setSearchValue(e.target.value);
-              searchAction(e.target.value)(dispatch);
+              if (e.target.value !== "") {
+                searchAction(e.target.value)(dispatch);
+              } else {
+                dispatch({
+                  type: "CLEAR_SEARCH",
+                });
+              }
             }}
           />
         )}

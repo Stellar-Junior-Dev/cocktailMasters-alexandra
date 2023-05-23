@@ -1,4 +1,6 @@
 import { createStore } from "redux";
+import { getInstructions } from "../utils/helpers";
+import { getIngredients } from "../utils/helpers";
 
 const initialState = {
   cocktailData: [],
@@ -13,6 +15,9 @@ const initialState = {
 export default function rootReducer(state = initialState, action) {
   switch (action.type) {
     case "SET_COCKTAIL":
+      let cocktail = action.payload.cocktail;
+      cocktail.instructions = getInstructions(cocktail);
+      cocktail.ingredients = getIngredients(cocktail);
       return {
         ...state,
         selectedCocktail: action.payload.cocktail,
@@ -23,6 +28,12 @@ export default function rootReducer(state = initialState, action) {
       return {
         ...state,
         searchResults: action.payload.drinks ?? [],
+      };
+
+    case "CLEAR_SEARCH":
+      return {
+        ...state,
+        searchResults: [],
       };
 
     case "SET_CATEGORY":

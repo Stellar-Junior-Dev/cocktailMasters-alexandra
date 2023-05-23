@@ -6,6 +6,7 @@ import { Ingredient } from "../../components/ingredients/Ingredients";
 import { Instructions } from "../../components/instructions/Instructions";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { idAction } from "../../actions/id";
 import {
   selectCocktailData,
   selectCocktailNeighbours,
@@ -14,6 +15,8 @@ import {
 import { CardImage } from "../../components/cardimage/CardImage";
 import Tags from "../../components/tags/Tags";
 import { CocktailNav } from "../../components/cocktailnav/CocktailNav";
+import { getInstructions } from "../../utils/helpers";
+import { getIngredients } from "../../utils/helpers";
 
 export function DetailsPage() {
   let { id } = useParams();
@@ -21,7 +24,7 @@ export function DetailsPage() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [headerHeight, setHeaderHeight] = useState(0);
   const cocktail = useSelector(selectSelectedCocktail);
-  const { nextId, prevId } = useSelector(selectCocktailNeighbours);
+  // const { nextId, prevId } = useSelector(selectCocktailNeighbours);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -32,11 +35,10 @@ export function DetailsPage() {
   }, []);
 
   useEffect(() => {
-    dispatch({
-      type: "SET_COCKTAIL",
-      payload: { id: id },
-    });
-  }, [cocktail, id]);
+    idAction(id)(dispatch);
+  }, [id]);
+
+  console.log(cocktail);
 
   return (
     !!cocktail && (
@@ -48,7 +50,7 @@ export function DetailsPage() {
           onLoad={(e) =>
             setHeaderHeight(e.target.getBoundingClientRect().height)
           }
-          image={cocktail?.image}
+          image={cocktail?.strDrinkThumb}
         />
 
         <div
@@ -78,12 +80,16 @@ export function DetailsPage() {
           }}
         >
           <div className="cocktail-title">
-            <p className="cocktail-title-text">{cocktail?.name}</p>
+            <p className="cocktail-title-text">{cocktail?.strDrink}</p>
           </div>
-          <Tags tags={cocktail?.tags} />
+          {cocktail?.strTags && <Tags tags={(cocktail?.strTags).split(",")} />}
+
           <Ingredient ingredients={cocktail?.ingredients} />
-          <Instructions instructions={cocktail?.instructions} />
-          <CocktailNav prevId={prevId} nextId={nextId} />
+          <Instructions
+            glass={cocktail?.strGlass}
+            instructions={cocktail?.instructions}
+          />
+          {/* <CocktailNav prevId={prevId} nextId={nextId} /> */}
         </div>
       </div>
     )

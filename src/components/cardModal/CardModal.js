@@ -12,6 +12,8 @@ import { Instructions } from "../instructions/Instructions";
 import { CocktailNav } from "../cocktailnav/CocktailNav";
 import "./cardmodal.css";
 import { useEffect } from "react";
+import { getInstructions } from "../../utils/helpers";
+import { getIngredients } from "../../utils/helpers";
 
 export function CardModal({ open }) {
   const cocktail = useSelector(selectSelectedCocktail);
@@ -24,20 +26,19 @@ export function CardModal({ open }) {
         <div className="popup-details">
           <div className="first">
             <CardImage image={cocktail?.strDrinkThumb} />
-            <Tags tags={(cocktail?.strTags ?? []).split(",")} />
+            {cocktail?.strTags && (
+              <Tags tags={(cocktail?.strTags).split(",")} />
+            )}
             <div className="cocktail-title">
-              <p className="cocktail-title-text">{cocktail?.name}</p>
+              <p className="cocktail-title-text">{cocktail?.strDrink}</p>
             </div>
             {/* <CocktailNav prevId={prevId} nextId={nextId} /> */}
           </div>
           <div className="second">
-            {/* <Ingredient ingredients={cocktail?.ingredients} /> */}
+            <Ingredient ingredients={cocktail?.ingredients} />
             <Instructions
-              instructions={[
-                cocktail?.strInstructions,
-                cocktail?.strInstructionsDE,
-                cocktail?.strInstructionsES,
-              ]}
+              glass={cocktail?.strGlass}
+              instructions={cocktail?.instructions}
             />
           </div>
         </div>

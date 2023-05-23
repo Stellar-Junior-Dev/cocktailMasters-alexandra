@@ -28,7 +28,13 @@ export function WebOptions({ source }) {
             placeholder="TYPE HERE"
             onChange={(e) => {
               setSearchValue(e.target.value);
-              searchAction(e.target.value)(dispatch);
+              if (e.target.value !== "") {
+                searchAction(e.target.value)(dispatch);
+              } else {
+                dispatch({
+                  type: "CLEAR_SEARCH",
+                });
+              }
             }}
           />
         )}

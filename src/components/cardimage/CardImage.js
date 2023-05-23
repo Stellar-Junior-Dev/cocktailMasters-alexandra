@@ -10,7 +10,7 @@ export function CardImage({ image, onClick, onLoad }) {
   const dispatch = useDispatch();
   const mobile = isMobile();
   const [isScrolled, setIsScrolled] = useState(false);
-  const [headerHeight, setHeaderHeight] = useState(0);
+  const [searchValue, setSearchValue] = useState("");
   const navigate = useNavigate();
   return (
     <div className="cocktail-image-details" onClick={onClick}>
@@ -22,6 +22,10 @@ export function CardImage({ image, onClick, onLoad }) {
               alt="back"
               onClick={() => {
                 navigate(-1);
+                dispatch({
+                  type: "SEARCH",
+                  payload: { searchParam: "" },
+                });
               }}
             />
           </div>
@@ -35,6 +39,10 @@ export function CardImage({ image, onClick, onLoad }) {
                 dispatch({
                   type: "TOGGLE_POPUP",
                   payload: { name: POPUP_NAME.CARD, value: false },
+                });
+                dispatch({
+                  type: "SEARCH",
+                  payload: { searchParam: "" },
                 });
               }}
             />

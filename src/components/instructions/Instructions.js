@@ -1,14 +1,10 @@
 import "./instructions.css";
 import { useEffect, useState } from "react";
-export function Instructions({ instructions }) {
-  const [selectedLanguage, setSelectedLanguage] = useState(
-    instructions[0].language
-  );
-  const language = instructions.find(
-    (instruction) => instruction.language === selectedLanguage
-  );
+export function Instructions({ instructions, glass }) {
+  const [selectedLanguage, setSelectedLanguage] = useState(undefined);
+
   useEffect(() => {
-    setSelectedLanguage(instructions[0].language);
+    setSelectedLanguage(instructions[0]);
   }, [instructions]);
 
   return (
@@ -18,19 +14,24 @@ export function Instructions({ instructions }) {
       </div>
       <div className="instructions-text-container">
         <div className="instructions-language-container">
-          {instructions.map((instruction) => (
-            <img
-              key={instruction}
-              className="instructions-language"
-              src={require(`../../img/en.svg`)}
-              alt={instruction}
-              onClick={() => setSelectedLanguage(instruction)}
-            />
-          ))}
+          {instructions.map(
+            (instruction) =>
+              instruction && (
+                <img
+                  key={instruction.text}
+                  className="instructions-language"
+                  src={require(`../../img/${instruction.icon}.svg`)}
+                  alt={instruction.text}
+                  onClick={() => setSelectedLanguage(instruction)}
+                />
+              )
+          )}
         </div>
-        <p className="instructions-text">{!!language && language.text}</p>
+        <p className="instructions-text">
+          {!!selectedLanguage && selectedLanguage.text}
+        </p>
         <h2 className="instructions-glass-title">GLASS</h2>
-        <p className="instructions-text">Serve: Old-fashioned glass</p>
+        <p className="instructions-text">Serve: {glass}</p>
       </div>
     </div>
   );
