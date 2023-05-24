@@ -8,7 +8,7 @@
 }
 
 .category-page .card {
-  margin: 2%;
+  margin: 8px;
   width: 165px;
   height: 165px;
   background-color: blueviolet;
@@ -74,8 +74,5 @@
   .category-page {
     justify-content: flex-start;
     margin: 0px;
-  }
-  .content.category {
-    margin-top: 230px;
   }
 }

@@ -1,22 +1,17 @@
 import { useNavigate, useParams } from "react-router-dom";
 import "./details.css";
-import heart from "../../img/heart.svg";
-import back from "../../img/back.png";
 import { Ingredient } from "../../components/ingredients/Ingredients";
 import { Instructions } from "../../components/instructions/Instructions";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { idAction } from "../../actions/id";
+import { getCocktailByID } from "../../actions/cocktail";
 import {
-  selectCocktailData,
   selectCocktailNeighbours,
   selectSelectedCocktail,
 } from "../../selectors/selectCocktailData";
 import { CardImage } from "../../components/cardimage/CardImage";
 import Tags from "../../components/tags/Tags";
 import { CocktailNav } from "../../components/cocktailnav/CocktailNav";
-import { getInstructions } from "../../utils/helpers";
-import { getIngredients } from "../../utils/helpers";
 
 export function DetailsPage() {
   let { id } = useParams();
@@ -24,7 +19,7 @@ export function DetailsPage() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [headerHeight, setHeaderHeight] = useState(0);
   const cocktail = useSelector(selectSelectedCocktail);
-  // const { nextId, prevId } = useSelector(selectCocktailNeighbours);
+  const { nextId, prevId } = useSelector(selectCocktailNeighbours);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -35,15 +30,22 @@ export function DetailsPage() {
   }, []);
 
   useEffect(() => {
-    idAction(id)(dispatch);
+    getCocktailByID(id)(dispatch);
   }, [id]);
 
-  console.log(cocktail);
+  // console.log(cocktail);
 
   return (
     !!cocktail && (
       <div className="detailspage">
         <CardImage
+          onBackClick={() => {
+            navigate(-1);
+            dispatch({
+              type: "SEARCH",
+              payload: { searchParam: "" },
+            });
+          }}
           onClick={() => {
             setIsScrolled(false);
           }}
@@ -74,7 +76,7 @@ export function DetailsPage() {
           onScroll={(e) => {
             // setScrollTop(scrollTop - e.target.scrollTop);
             // pentru fun
-            if (e.target.scrollTop != 0) {
+            if (e.target.scrollTop !== 0) {
               setIsScrolled(e.target.scrollTop > 0);
             }
           }}
@@ -89,7 +91,7 @@ export function DetailsPage() {
             glass={cocktail?.strGlass}
             instructions={cocktail?.instructions}
           />
-          {/* <CocktailNav prevId={prevId} nextId={nextId} /> */}
+          <CocktailNav prevId={prevId} nextId={nextId} />
         </div>
       </div>
     )

@@ -4,6 +4,7 @@ import search from "../../img/search.svg";
 import { useDispatch } from "react-redux";
 import { POPUP_NAME } from "../../utils/popupNames";
 import { isMobile } from "../../selectors/selectCocktailData";
+import { popupAction } from "../../actions/popup";
 
 export function Controls() {
   const dispatch = useDispatch();
@@ -12,10 +13,7 @@ export function Controls() {
     <div className="details">
       <div
         onClick={() => {
-          dispatch({
-            type: "TOGGLE_POPUP",
-            payload: { name: POPUP_NAME.SEARCH, value: true },
-          });
+          popupAction(POPUP_NAME.SEARCH, true)(dispatch);
         }}
         className={"menu"}
       >
@@ -24,10 +22,7 @@ export function Controls() {
       {mobile && (
         <div
           onClick={() => {
-            dispatch({
-              type: "TOGGLE_POPUP",
-              payload: { name: POPUP_NAME.OPTIONS, value: true },
-            });
+            popupAction(POPUP_NAME.OPTIONS, true)(dispatch);
           }}
           className={"menu"}
         >

@@ -24,8 +24,12 @@ export const getIngredients = (cocktail) => {
       arr.push({
         measure: cocktail?.["strMeasure" + key],
         ingredient: cocktail?.["strIngredient" + key],
+        image: getIngredientImage(cocktail?.["strIngredient" + key]),
       });
     }
   });
   return arr;
 };
+
+export const getIngredientImage = (ingredient) =>
+  `https://www.thecocktaildb.com/images/ingredients/${ingredient}-Small.png`;

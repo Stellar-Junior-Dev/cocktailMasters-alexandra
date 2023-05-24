@@ -7,6 +7,12 @@ import { Provider } from "react-redux";
 import { HomePage } from "./pages/homepage/Homepage";
 import { PopupWrapper } from "./components/popupWrapper/popupWrapper";
 import { isMobile } from "../src/selectors/selectCocktailData";
+import {
+  CATEGORY_PAGE_ROUTE,
+  DETAILS_PAGE_ROUTE,
+  HOMEPAGE,
+  HOMEPAGE_ROUTE,
+} from "./constants";
 
 const { store } = createStore();
 
@@ -17,9 +23,11 @@ function App() {
       <HashRouter>
         <PopupWrapper />
         <Routes>
-          <Route path="/" element={<HomePage />} />
-          {mobile && <Route path="/cocktail/:id" element={<DetailsPage />} />}
-          <Route path="/category/:categoryId" element={<CategoryPage />} />
+          <Route path={HOMEPAGE_ROUTE} element={<HomePage />} />
+          {mobile && (
+            <Route path={DETAILS_PAGE_ROUTE} element={<DetailsPage />} />
+          )}
+          <Route path={CATEGORY_PAGE_ROUTE} element={<CategoryPage />} />
         </Routes>
       </HashRouter>
     </Provider>

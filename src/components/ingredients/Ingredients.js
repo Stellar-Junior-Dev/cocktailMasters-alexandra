@@ -10,9 +10,7 @@ export function Ingredient({ ingredients }) {
           <div key={index} className="ingredients-card">
             <img className="ingredients-image" src={ingredient.image} />
             <p className="ingredients-text">
-              {" "}
-              {ingredient.measure}
-              {ingredient.ingredient}
+              {ingredient.measure} {ingredient.ingredient}
             </p>
           </div>
         ))}

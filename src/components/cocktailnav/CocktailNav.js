@@ -2,10 +2,16 @@ import { useNavigate } from "react-router";
 import "./cocktailnav.css";
 import { isMobile } from "../../selectors/selectCocktailData";
 import { useDispatch } from "react-redux";
+import {
+  GET_COCKTAIL_BY_ID_ACTION,
+  getCocktailByID,
+} from "../../actions/cocktail";
+import { useSearchParams } from "react-router-dom";
 
 export function CocktailNav({ prevId, nextId }) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [searchParams, setSearchParams] = useSearchParams();
   const mobile = isMobile();
   return (
     <div className="details-options-container">
@@ -23,10 +29,8 @@ export function CocktailNav({ prevId, nextId }) {
           {!mobile && (
             <div
               onClick={() => {
-                dispatch({
-                  type: "SET_COCKTAIL",
-                  payload: { id: prevId },
-                });
+                setSearchParams({ idDrink: prevId });
+                getCocktailByID(prevId)(dispatch);
               }}
             >
               {"<"} previous{" "}
@@ -50,10 +54,8 @@ export function CocktailNav({ prevId, nextId }) {
           {!mobile && (
             <div
               onClick={() => {
-                dispatch({
-                  type: "SET_COCKTAIL",
-                  payload: { id: nextId },
-                });
+                setSearchParams({ idDrink: nextId });
+                getCocktailByID(nextId)(dispatch);
               }}
             >
               {" "}

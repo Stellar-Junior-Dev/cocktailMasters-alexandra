@@ -218,6 +218,7 @@
     width: 100%;
     padding: 16px;
     justify-content: flex-start;
+    margin-top: unset;
   }
 
   .search-background.hide-search {
