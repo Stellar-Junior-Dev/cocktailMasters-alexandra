@@ -57,7 +57,7 @@ export function Category({
   );
 }
 
-function CardLink({ children, cocktail }) {
+export function CardLink({ children, cocktail }) {
   const mobile = isMobile();
   const dispatch = useDispatch();
   let [searchParams, setSearchParams] = useSearchParams();

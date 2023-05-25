@@ -13,11 +13,14 @@ import {
   HOMEPAGE,
   HOMEPAGE_ROUTE,
 } from "./constants";
+import { useEffect } from "react";
+import { getFavorite } from "./actions/favourites";
 
 const { store } = createStore();
 
 function App() {
   const mobile = isMobile();
+
   return (
     <Provider store={store}>
       <HashRouter>

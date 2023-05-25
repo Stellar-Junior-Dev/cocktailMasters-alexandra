@@ -52,6 +52,7 @@ export function DetailsPage() {
           onLoad={(e) =>
             setHeaderHeight(e.target.getBoundingClientRect().height)
           }
+          cocktail={cocktail}
           image={cocktail?.strDrinkThumb}
         />
 

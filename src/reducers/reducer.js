@@ -2,6 +2,7 @@ import { GET_CATEGORY_ACTION } from "../actions/category";
 import { GET_COCKTAIL_BY_ID_ACTION } from "../actions/cocktail";
 import { TOGGLE_POPUP } from "../actions/popup";
 import { SEARCH_ACTION_TYPE } from "../actions/search";
+import { ADD_FAVORITE, SET_FAVORITES } from "../constants";
 import { getInstructions } from "../utils/helpers";
 import { getIngredients } from "../utils/helpers";
 
@@ -14,6 +15,7 @@ const initialState = {
   selectedCategory: undefined,
   popupOpen: "",
   cocktails: {},
+  favorites: [],
 };
 
 export default function rootReducer(state = initialState, action) {
@@ -74,6 +76,37 @@ export default function rootReducer(state = initialState, action) {
       return {
         ...state,
         popupOpen: "",
+      };
+
+    case ADD_FAVORITE:
+      let id = action.payload.id;
+      if (!state.favorites.find((e) => e === id)) {
+        const fav = [...state.favorites, id];
+        window.localStorage.setItem("favorites", JSON.stringify(fav));
+
+        return {
+          ...state,
+          favorites: fav,
+        };
+      } else {
+        console.log("da");
+
+        const arr = state.favorites;
+
+        const index = arr.indexOf(id);
+        arr.splice(index, 1);
+        window.localStorage.setItem("favorites", JSON.stringify(arr));
+        return {
+          ...state,
+          favorites: arr,
+        };
+      }
+
+    case SET_FAVORITES:
+      const arr = action.payload.favorites;
+      return {
+        ...state,
+        favorites: arr,
       };
 
     default:

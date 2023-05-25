@@ -51,6 +51,7 @@ export function CardModal({ open }) {
         <div className="popup-details">
           <div className="first">
             <CardImage
+              cocktail={cocktail}
               image={cocktail?.strDrinkThumb}
               onBackClick={() => {
                 setSearchParams({});
@@ -72,7 +73,7 @@ export function CardModal({ open }) {
             <Ingredient ingredients={cocktail?.ingredients} />
             <Instructions
               glass={cocktail?.strGlass}
-              instructions={cocktail?.instructions ?? []}
+              instructions={cocktail?.instructions}
             />
           </div>
         </div>

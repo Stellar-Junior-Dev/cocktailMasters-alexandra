@@ -16,6 +16,7 @@ import {
 } from "../../actions/search";
 import { Link } from "react-router-dom";
 import { popupAction } from "../../actions/popup";
+import { CardLink } from "../category/Category";
 
 export function Search({ open }) {
   const dispatch = useDispatch();
@@ -97,17 +98,14 @@ export function Search({ open }) {
             {searchResults.length > 0 && (
               <>
                 {searchResults.map((cocktail) => (
-                  <Link
-                    to={`/cocktail/${cocktail.idDrink}`}
-                    onClick={onCocktailClick}
-                  >
+                  <CardLink cocktail={cocktail}>
                     <Card
                       className={"search-card"}
                       key={cocktail.idDrink}
                       cocktail={cocktail}
                       cocktailList={searchResults}
                     />
-                  </Link>
+                  </CardLink>
                 ))}
               </>
             )}
