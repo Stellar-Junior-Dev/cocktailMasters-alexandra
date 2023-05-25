@@ -12,3 +12,10 @@ export const searchAction = (value) => async (dispatch) => {
     payload: { drinks: response.drinks },
   });
 };
+
+export const searchValueAction = (value) => async (dispatch) => {
+  dispatch({
+    type: "SEARCH_VALUE",
+    payload: { value },
+  });
+};

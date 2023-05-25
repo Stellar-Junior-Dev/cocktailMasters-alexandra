@@ -1,26 +1,24 @@
 import "./weboptions.css";
 import search from "../../img/search.svg";
 import x from "../../img/x.svg";
-import { selectCocktailData } from "../../selectors/selectCocktailData";
+import { selectSearchValue } from "../../selectors/selectCocktailData";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { POPUP_NAME } from "../../utils/popupNames";
 import searchicon from "../../img/search.svg";
-import { useState } from "react";
 import { selectOpenPopup } from "../../selectors/selectCocktailData";
 import Input from "../input/Input";
-import { searchAction } from "../../actions/search";
+import { searchAction, searchValueAction } from "../../actions/search";
 import { popupAction } from "../../actions/popup";
 
 export function WebOptions({ source }) {
   const open = useSelector(selectOpenPopup);
-  const [searchValue, setSearchValue] = useState("");
+  const searchValue = useSelector(selectSearchValue);
   const dispatch = useDispatch();
-  const cocktailData = useSelector(selectCocktailData);
 
   const onInputChange = (e) => {
-    setSearchValue(e.target.value);
+    searchValueAction(e.target.value)(dispatch);
     if (e.target.value !== "") {
       searchAction(e.target.value)(dispatch);
     } else {
@@ -40,7 +38,7 @@ export function WebOptions({ source }) {
 
   const onCloseSearch = () => {
     clearSearch();
-    setSearchValue("");
+    searchValueAction("")(dispatch);
     popupAction(POPUP_NAME.OPTIONS, false)(dispatch);
   };
 

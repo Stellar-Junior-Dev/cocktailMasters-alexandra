@@ -3,7 +3,11 @@ import x from "../../img/x.svg";
 import searchicon from "../../img/search.svg";
 import noresults from "../../img/nores.svg";
 import { Card } from "../card/Card";
-import { isMobile } from "../../selectors/selectCocktailData";
+import {
+  isMobile,
+  selectSearchValue,
+  selectSearchValueAction,
+} from "../../selectors/selectCocktailData";
 import { useDispatch, useSelector } from "react-redux";
 import { selectSearchResults } from "../../selectors/selectCocktailData";
 import { useEffect, useState } from "react";
@@ -11,10 +15,9 @@ import { POPUP_NAME } from "../../utils/popupNames";
 import Input from "../input/Input";
 import {
   CLEAR_SEARCH,
-  SEARCH_ACTION_TYPE,
   searchAction,
+  searchValueAction,
 } from "../../actions/search";
-import { Link } from "react-router-dom";
 import { popupAction } from "../../actions/popup";
 import { CardLink } from "../category/Category";
 
@@ -22,7 +25,7 @@ export function Search({ open }) {
   const dispatch = useDispatch();
 
   const searchResults = useSelector(selectSearchResults);
-  const [searchValue, setSearchValue] = useState("");
+  const searchValue = useSelector(selectSearchValue);
   const mobile = isMobile();
 
   useEffect(() => {
@@ -37,7 +40,7 @@ export function Search({ open }) {
 
   const onRemove = () => {
     onClearSearch();
-    setSearchValue("");
+    searchValueAction("")(dispatch);
   };
 
   const onClose = () => {
@@ -46,7 +49,7 @@ export function Search({ open }) {
   };
 
   const onInputChange = (e) => {
-    setSearchValue(e.target.value);
+    searchValueAction(e.target.value)(dispatch);
     if (e.target.value !== "") {
       searchAction(e.target.value)(dispatch);
     } else {
@@ -55,10 +58,9 @@ export function Search({ open }) {
   };
 
   const onCocktailClick = () => {
+    searchValueAction("")(dispatch);
     onClearSearch();
     popupAction(POPUP_NAME.SEARCH, false)(dispatch);
-
-    setSearchValue("");
   };
 
   return (
@@ -98,7 +100,11 @@ export function Search({ open }) {
             {searchResults.length > 0 && (
               <>
                 {searchResults.map((cocktail) => (
-                  <CardLink cocktail={cocktail}>
+                  <CardLink
+                    key={cocktail?.idDrink}
+                    cocktail={cocktail}
+                    onCocktailClick={onCocktailClick}
+                  >
                     <Card
                       className={"search-card"}
                       key={cocktail.idDrink}

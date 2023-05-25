@@ -5,9 +5,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { categoryAction } from "../../actions/category";
 import { selectCategoryDrinks } from "../../selectors/selectCocktailData";
+import { isMobile } from "../../selectors/selectCocktailData";
 import { POPUP_NAME } from "../../utils/popupNames";
 import { popupAction } from "../../actions/popup";
-import { isMobile } from "../../selectors/selectCocktailData";
+import { CLEAR_SEARCH, searchValueAction } from "../../actions/search";
 export function Category({
   categoryTitle,
   className,
@@ -46,7 +47,7 @@ export function Category({
 
           <div className={`cardContainer ${className ? className : ""}`}>
             {cocktails[categoryTitle].map((cocktail) => (
-              <CardLink cocktail={cocktail}>
+              <CardLink cocktail={cocktail} key={cocktail.idDrink}>
                 <Card cocktail={cocktail} cocktailList={cocktails} />
               </CardLink>
             ))}
@@ -57,7 +58,7 @@ export function Category({
   );
 }
 
-export function CardLink({ children, cocktail }) {
+export function CardLink({ children, cocktail, onCocktailClick }) {
   const mobile = isMobile();
   const dispatch = useDispatch();
   let [searchParams, setSearchParams] = useSearchParams();
@@ -65,12 +66,7 @@ export function CardLink({ children, cocktail }) {
     <Link
       key={cocktail.idDrink}
       to={`/cocktail/${cocktail.idDrink}`}
-      onClick={() => {
-        dispatch({
-          type: "CLEAR_SEARCH",
-        });
-        popupAction(POPUP_NAME.SEARCH, false)(dispatch);
-      }}
+      onClick={onCocktailClick}
     >
       {children}
     </Link>
@@ -78,6 +74,11 @@ export function CardLink({ children, cocktail }) {
     <div
       onClick={() => {
         setSearchParams({ idDrink: cocktail.idDrink });
+        searchValueAction("")(dispatch);
+        dispatch({
+          type: CLEAR_SEARCH,
+        });
+        popupAction(POPUP_NAME.SEARCH, false)(dispatch);
       }}
     >
       {children}

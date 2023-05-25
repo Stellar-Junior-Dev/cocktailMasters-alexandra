@@ -16,6 +16,7 @@ const initialState = {
   popupOpen: "",
   cocktails: {},
   favorites: [],
+  value: "",
 };
 
 export default function rootReducer(state = initialState, action) {
@@ -89,8 +90,6 @@ export default function rootReducer(state = initialState, action) {
           favorites: fav,
         };
       } else {
-        console.log("da");
-
         const arr = state.favorites;
 
         const index = arr.indexOf(id);
@@ -107,6 +106,12 @@ export default function rootReducer(state = initialState, action) {
       return {
         ...state,
         favorites: arr,
+      };
+
+    case "SEARCH_VALUE":
+      return {
+        ...state,
+        value: action.payload.value ?? "",
       };
 
     default:
