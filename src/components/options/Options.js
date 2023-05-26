@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { POPUP_NAME } from "../../utils/popupNames";
 import { popupAction } from "../../actions/popup";
+import { FAVORITES_PAGE_ROUTE } from "../../constants";
 
 export function Options({ open }) {
   const dispatch = useDispatch();
@@ -36,6 +37,9 @@ export function Options({ open }) {
           </Link>
           <Link to={"/category/randomselection"} onClick={closeHamburger}>
             RANDOM
+          </Link>
+          <Link to={FAVORITES_PAGE_ROUTE} onClick={closeHamburger}>
+            FAVORITES
           </Link>
         </div>
 

@@ -6,7 +6,7 @@ import { selectFavorites } from "../../selectors/selectCocktailData";
 
 export function Card({ cocktail, className = "card" }) {
   const favorites = useSelector(selectFavorites);
-  const isFav = favorites.find((e) => e === cocktail?.idDrink);
+  const isFav = favorites?.find((e) => e === cocktail?.idDrink);
   return (
     <div
       className={className ? className : "card"}

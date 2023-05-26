@@ -12,6 +12,7 @@ import {
 import { CardImage } from "../../components/cardimage/CardImage";
 import Tags from "../../components/tags/Tags";
 import { CocktailNav } from "../../components/cocktailnav/CocktailNav";
+import { SEARCH_ACTION_TYPE } from "../../actions/search";
 
 export function DetailsPage() {
   let { id } = useParams();
@@ -33,8 +34,6 @@ export function DetailsPage() {
     getCocktailByID(id)(dispatch);
   }, [id]);
 
-  // console.log(cocktail);
-
   return (
     !!cocktail && (
       <div className="detailspage">
@@ -42,7 +41,7 @@ export function DetailsPage() {
           onBackClick={() => {
             navigate(-1);
             dispatch({
-              type: "SEARCH",
+              type: SEARCH_ACTION_TYPE,
               payload: { searchParam: "" },
             });
           }}

@@ -11,6 +11,7 @@ import { selectOpenPopup } from "../../selectors/selectCocktailData";
 import Input from "../input/Input";
 import { searchAction, searchValueAction } from "../../actions/search";
 import { popupAction } from "../../actions/popup";
+import { FAVORITES_PAGE_ROUTE } from "../../constants";
 
 export function WebOptions({ source }) {
   const open = useSelector(selectOpenPopup);
@@ -61,6 +62,7 @@ export function WebOptions({ source }) {
             <Link to="/category/popular">POPULAR</Link>
             <Link to="/category/latest">LATEST</Link>
             <Link to="/category/randomselection">RANDOM</Link>
+            <Link to={FAVORITES_PAGE_ROUTE}>FAVORITES</Link>
           </>
         )}
       </div>

@@ -17,6 +17,7 @@ import { getCocktailByID } from "../../actions/cocktail";
 import { popupAction } from "../../actions/popup";
 import { useSearchParams } from "react-router-dom";
 import { CocktailNav } from "../cocktailnav/CocktailNav";
+import { SEARCH_ACTION_TYPE } from "../../actions/search";
 
 export function CardModal({ open }) {
   const cocktail = useSelector(selectSelectedCocktail);
@@ -56,7 +57,7 @@ export function CardModal({ open }) {
               onBackClick={() => {
                 setSearchParams({});
                 dispatch({
-                  type: "SEARCH",
+                  type: SEARCH_ACTION_TYPE,
                   payload: { searchParam: "" },
                 });
               }}
