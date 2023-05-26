@@ -3,45 +3,71 @@ import x from "../../img/x.svg";
 import searchicon from "../../img/search.svg";
 import noresults from "../../img/nores.svg";
 import { Card } from "../card/Card";
-import { isMobile } from "../../selectors/selectCocktailData";
+import {
+  isMobile,
+  selectSearchValue,
+  selectSearchValueAction,
+} from "../../selectors/selectCocktailData";
 import { useDispatch, useSelector } from "react-redux";
 import { selectSearchResults } from "../../selectors/selectCocktailData";
 import { useEffect, useState } from "react";
 import { POPUP_NAME } from "../../utils/popupNames";
 import Input from "../input/Input";
+import {
+  CLEAR_SEARCH,
+  searchAction,
+  searchValueAction,
+} from "../../actions/search";
+import { popupAction } from "../../actions/popup";
+import { CardLink } from "../category/Category";
 
 export function Search({ open }) {
   const dispatch = useDispatch();
 
   const searchResults = useSelector(selectSearchResults);
-  const [searchValue, setSearchValue] = useState("");
+  const searchValue = useSelector(selectSearchValue);
   const mobile = isMobile();
+
   useEffect(() => {
-    return () => {
-      dispatch({
-        type: "SEARCH",
-        payload: { searchParam: "" },
-      });
-    };
+    return onRemove;
   }, []);
+
+  const onClearSearch = () => {
+    dispatch({
+      type: CLEAR_SEARCH,
+    });
+  };
+
+  const onRemove = () => {
+    onClearSearch();
+    searchValueAction("")(dispatch);
+  };
+
+  const onClose = () => {
+    onRemove();
+    popupAction(POPUP_NAME.SEARCH, false)(dispatch);
+  };
+
+  const onInputChange = (e) => {
+    searchValueAction(e.target.value)(dispatch);
+    if (e.target.value !== "") {
+      searchAction(e.target.value)(dispatch);
+    } else {
+      onClearSearch();
+    }
+  };
+
+  const onCocktailClick = () => {
+    searchValueAction("")(dispatch);
+    onClearSearch();
+    popupAction(POPUP_NAME.SEARCH, false)(dispatch);
+  };
+
   return (
     <div className={`search-background ${!open ? "hide-search" : ""}`}>
       <div className="search-content">
         {mobile && (
-          <div
-            className="close-search"
-            onClick={() => {
-              dispatch({
-                type: "SEARCH",
-                payload: { searchParam: "" },
-              });
-              setSearchValue("");
-              dispatch({
-                type: "TOGGLE_POPUP",
-                payload: { name: POPUP_NAME.SEARCH, value: false },
-              });
-            }}
-          >
+          <div className="close-search" onClick={onClose}>
             <img src={x} alt="Close icon"></img>
           </div>
         )}
@@ -55,13 +81,7 @@ export function Search({ open }) {
             value={searchValue}
             className="search-input"
             placeholder="TYPE HERE"
-            onChange={(e) => {
-              setSearchValue(e.target.value);
-              dispatch({
-                type: "SEARCH",
-                payload: { searchParam: e.target.value },
-              });
-            }}
+            onChange={onInputChange}
           />
         )}
 
@@ -80,12 +100,18 @@ export function Search({ open }) {
             {searchResults.length > 0 && (
               <>
                 {searchResults.map((cocktail) => (
-                  <Card
-                    className={"search-card"}
-                    key={cocktail.id}
+                  <CardLink
+                    key={cocktail?.idDrink}
                     cocktail={cocktail}
-                    cocktailList={searchResults}
-                  />
+                    onCocktailClick={onCocktailClick}
+                  >
+                    <Card
+                      className={"search-card"}
+                      key={cocktail.idDrink}
+                      cocktail={cocktail}
+                      cocktailList={searchResults}
+                    />
+                  </CardLink>
                 ))}
               </>
             )}

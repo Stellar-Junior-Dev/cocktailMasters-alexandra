@@ -1,13 +1,11 @@
 import { useNavigate, useParams } from "react-router-dom";
 import "./details.css";
-import heart from "../../img/heart.svg";
-import back from "../../img/back.png";
 import { Ingredient } from "../../components/ingredients/Ingredients";
 import { Instructions } from "../../components/instructions/Instructions";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { getCocktailByID } from "../../actions/cocktail";
 import {
-  selectCocktailData,
   selectCocktailNeighbours,
   selectSelectedCocktail,
 } from "../../selectors/selectCocktailData";
@@ -32,23 +30,30 @@ export function DetailsPage() {
   }, []);
 
   useEffect(() => {
-    dispatch({
-      type: "SET_COCKTAIL",
-      payload: { id: id },
-    });
-  }, [cocktail, id]);
+    getCocktailByID(id)(dispatch);
+  }, [id]);
+
+  // console.log(cocktail);
 
   return (
     !!cocktail && (
       <div className="detailspage">
         <CardImage
+          onBackClick={() => {
+            navigate(-1);
+            dispatch({
+              type: "SEARCH",
+              payload: { searchParam: "" },
+            });
+          }}
           onClick={() => {
             setIsScrolled(false);
           }}
           onLoad={(e) =>
             setHeaderHeight(e.target.getBoundingClientRect().height)
           }
-          image={cocktail?.image}
+          cocktail={cocktail}
+          image={cocktail?.strDrinkThumb}
         />
 
         <div
@@ -72,17 +77,21 @@ export function DetailsPage() {
           onScroll={(e) => {
             // setScrollTop(scrollTop - e.target.scrollTop);
             // pentru fun
-            if (e.target.scrollTop != 0) {
+            if (e.target.scrollTop !== 0) {
               setIsScrolled(e.target.scrollTop > 0);
             }
           }}
         >
           <div className="cocktail-title">
-            <p className="cocktail-title-text">{cocktail?.name}</p>
+            <p className="cocktail-title-text">{cocktail?.strDrink}</p>
           </div>
-          <Tags tags={cocktail?.tags} />
+          {cocktail?.strTags && <Tags tags={(cocktail?.strTags).split(",")} />}
+
           <Ingredient ingredients={cocktail?.ingredients} />
-          <Instructions instructions={cocktail?.instructions} />
+          <Instructions
+            glass={cocktail?.strGlass}
+            instructions={cocktail?.instructions}
+          />
           <CocktailNav prevId={prevId} nextId={nextId} />
         </div>
       </div>

@@ -1,47 +1,29 @@
 import heart from "../../img/heart.svg";
+import pressedHeart from "../../img/pressedHeart.svg";
 import back from "../../img/back.png";
-import { useNavigate } from "react-router-dom";
-import { useState } from "react";
 import "./cardimage.css";
-import { isMobile } from "../../selectors/selectCocktailData";
-import { useDispatch } from "react-redux";
-import { POPUP_NAME } from "../../utils/popupNames";
-export function CardImage({ image, onClick, onLoad }) {
+import { useDispatch, useSelector } from "react-redux";
+import { addFavorites } from "../../actions/favourites";
+import { selectFavorites } from "../../selectors/selectCocktailData";
+
+export function CardImage({ image, onClick, onLoad, onBackClick, cocktail }) {
   const dispatch = useDispatch();
-  const mobile = isMobile();
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [headerHeight, setHeaderHeight] = useState(0);
-  const navigate = useNavigate();
+  const favorites = useSelector(selectFavorites);
+  const isFav = favorites.find((e) => e === cocktail?.idDrink);
+
   return (
     <div className="cocktail-image-details" onClick={onClick}>
       <div className="navigation-top-buttons">
-        {mobile && (
-          <div className="buttonElement">
-            <img
-              src={back}
-              alt="back"
-              onClick={() => {
-                navigate(-1);
-              }}
-            />
-          </div>
-        )}
-        {!mobile && (
-          <div className="buttonElement">
-            <img
-              src={back}
-              alt="back"
-              onClick={() => {
-                dispatch({
-                  type: "TOGGLE_POPUP",
-                  payload: { name: POPUP_NAME.CARD, value: false },
-                });
-              }}
-            />
-          </div>
-        )}
         <div className="buttonElement">
-          <img src={heart} />
+          <img src={back} alt="back" onClick={onBackClick} />
+        </div>
+        <div
+          className="buttonElement"
+          onClick={() => {
+            addFavorites(cocktail?.idDrink)(dispatch);
+          }}
+        >
+          <img src={isFav ? pressedHeart : heart} alt="favorite" />
         </div>
       </div>
       <img

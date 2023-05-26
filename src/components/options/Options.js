@@ -2,13 +2,16 @@ import "./options.css";
 import x from "../../img/x.svg";
 import copyright from "../../img/copyright.svg";
 import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { selectCocktailData } from "../../selectors/selectCocktailData";
+import { useDispatch } from "react-redux";
 import { POPUP_NAME } from "../../utils/popupNames";
+import { popupAction } from "../../actions/popup";
 
 export function Options({ open }) {
   const dispatch = useDispatch();
-  const cocktailData = useSelector(selectCocktailData);
+
+  const closeHamburger = () => {
+    popupAction(POPUP_NAME.OPTIONS, false)(dispatch);
+  };
 
   return (
     <div className={`options-background ${!open ? "hide-options" : ""}`}>
@@ -16,45 +19,24 @@ export function Options({ open }) {
         <div
           className="close"
           onClick={() => {
-            dispatch({
-              type: "TOGGLE_POPUP",
-              payload: { name: POPUP_NAME.OPTIONS, value: false },
-            });
+            popupAction(POPUP_NAME.OPTIONS, false)(dispatch);
           }}
         >
           <img src={x} alt="Close icon" />
         </div>
         <div className="opt">
-          <Link
-            to={"/"}
-            onClick={() => {
-              dispatch({
-                type: "TOGGLE_POPUP",
-                payload: { name: POPUP_NAME.OPTIONS, value: false },
-              });
-            }}
-          >
+          <Link to={"/"} onClick={closeHamburger}>
             HOME
           </Link>
-
-          {cocktailData.map((category) => (
-            <Link
-              key={category.id}
-              to={`/category/${category.id}`}
-              onClick={() => {
-                dispatch({
-                  type: "SET_CATEGORY",
-                  payload: { id: category.id },
-                });
-                dispatch({
-                  type: "TOGGLE_POPUP",
-                  payload: { name: POPUP_NAME.OPTIONS, value: false },
-                });
-              }}
-            >
-              {category.categoryTitle}
-            </Link>
-          ))}
+          <Link to={"/category/popular"} onClick={closeHamburger}>
+            POPULAR
+          </Link>
+          <Link to={"/category/latest"} onClick={closeHamburger}>
+            LATEST
+          </Link>
+          <Link to={"/category/randomselection"} onClick={closeHamburger}>
+            RANDOM
+          </Link>
         </div>
 
         <div className="copyright">
