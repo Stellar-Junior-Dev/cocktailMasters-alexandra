@@ -1,8 +1,5 @@
 import { ADD_FAVORITE } from "../constants";
-
-export function getFavorite() {
-  return JSON.parse(localStorage.getItem("favorites"));
-}
+import { getAllFavorites } from "./favoriteaction";
 
 export const addFavorites = (id) => async (dispatch) => {
   dispatch({
@@ -11,4 +8,5 @@ export const addFavorites = (id) => async (dispatch) => {
       id: id,
     },
   });
+  getAllFavorites()(dispatch);
 };

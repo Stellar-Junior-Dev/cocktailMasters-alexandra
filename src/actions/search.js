@@ -9,7 +9,7 @@ export const searchAction = (value) => async (dispatch) => {
 
   dispatch({
     type: SEARCH_ACTION_TYPE,
-    payload: { drinks: response.drinks },
+    payload: { drinks: response.drinks ?? [] },
   });
 };
 

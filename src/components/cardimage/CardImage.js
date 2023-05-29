@@ -9,7 +9,7 @@ import { selectFavorites } from "../../selectors/selectCocktailData";
 export function CardImage({ image, onClick, onLoad, onBackClick, cocktail }) {
   const dispatch = useDispatch();
   const favorites = useSelector(selectFavorites);
-  const isFav = favorites.find((e) => e === cocktail?.idDrink);
+  const isFav = favorites?.find((e) => e === cocktail?.idDrink);
 
   return (
     <div className="cocktail-image-details" onClick={onClick}>

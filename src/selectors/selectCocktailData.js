@@ -11,3 +11,5 @@ export const selectSelectedCategory = (state) => state.selectedCategory;
 export const selectOpenPopup = (state) => state.popupOpen;
 export const selectCategoryDrinks = (state) => state.cocktails;
 export const isMobile = () => window.innerWidth < 768;
+export const selectFavoriteCocktails = (state) => state.favoriteCocktails;
+export const selectCachedCocktails = (state) => state.cachedCocktails;

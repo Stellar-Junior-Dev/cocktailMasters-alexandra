@@ -1,8 +1,12 @@
 import { GET_CATEGORY_ACTION } from "../actions/category";
 import { GET_COCKTAIL_BY_ID_ACTION } from "../actions/cocktail";
+import {
+  GET_ALL_FAVORITES,
+  GET_FAVORITES_ACTION,
+} from "../actions/favoriteaction";
 import { TOGGLE_POPUP } from "../actions/popup";
-import { SEARCH_ACTION_TYPE } from "../actions/search";
-import { ADD_FAVORITE, SET_FAVORITES } from "../constants";
+import { CLEAR_SEARCH, SEARCH_ACTION_TYPE } from "../actions/search";
+import { ADD_FAVORITE } from "../constants";
 import { getInstructions } from "../utils/helpers";
 import { getIngredients } from "../utils/helpers";
 
@@ -17,6 +21,8 @@ const initialState = {
   cocktails: {},
   favorites: [],
   value: "",
+  favoriteCocktails: [],
+  cachedCocktails: {},
 };
 
 export default function rootReducer(state = initialState, action) {
@@ -35,14 +41,25 @@ export default function rootReducer(state = initialState, action) {
         selectedCocktail: action.payload.cocktail,
         prevId: prevId,
         nextId: nextId,
-      };
-    case SEARCH_ACTION_TYPE:
-      return {
-        ...state,
-        searchResults: action.payload.drinks ?? [],
+        cachedCocktails: {
+          ...state.cachedCocktails,
+          [action.payload.cocktail]: action.payload.cocktail,
+        },
       };
 
-    case "CLEAR_SEARCH":
+    case SEARCH_ACTION_TYPE:
+      let cachedCocktails = { ...state.cachedCocktails };
+      let results = action.payload.drinks ?? [];
+      results.forEach((item) => {
+        cachedCocktails[item.idDrink] = item;
+      });
+      return {
+        ...state,
+        searchResults: results,
+        cachedCocktails: cachedCocktails,
+      };
+
+    case CLEAR_SEARCH:
       return {
         ...state,
         searchResults: [],
@@ -57,12 +74,18 @@ export default function rootReducer(state = initialState, action) {
       };
 
     case GET_CATEGORY_ACTION:
+      let cachedCocktail = { ...state.cachedCocktails };
+
+      action.payload.drinks.forEach((item) => {
+        cachedCocktail[item.idDrink] = item;
+      });
       return {
         ...state,
         cocktails: {
           ...state.cocktails,
           [action.payload.title]: action.payload.drinks,
         },
+        cachedCocktails: cachedCocktail,
       };
 
     case TOGGLE_POPUP:
@@ -101,19 +124,23 @@ export default function rootReducer(state = initialState, action) {
         };
       }
 
-    case SET_FAVORITES:
-      const arr = action.payload.favorites;
-      return {
-        ...state,
-        favorites: arr,
-      };
-
     case "SEARCH_VALUE":
       return {
         ...state,
         value: action.payload.value ?? "",
       };
 
+    case GET_ALL_FAVORITES:
+      return {
+        ...state,
+        favorites: action.payload.favoriteIDs,
+      };
+    case GET_FAVORITES_ACTION:
+      return {
+        ...state,
+        // cachedCocktails: action.payload.cachedCocktails,
+        favoriteCocktails: action.payload.favoriteCocktails,
+      };
     default:
       return state;
   }

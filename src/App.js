@@ -10,11 +10,14 @@ import { isMobile } from "../src/selectors/selectCocktailData";
 import {
   CATEGORY_PAGE_ROUTE,
   DETAILS_PAGE_ROUTE,
+  FAVORITES_PAGE_ROUTE,
   HOMEPAGE,
   HOMEPAGE_ROUTE,
 } from "./constants";
 import { useEffect } from "react";
 import { getFavorite } from "./actions/favourites";
+import { FavoriteWrapper } from "./components/favoriteWrapper/favoriteWrapper";
+import { FavoritesPage } from "./pages/favoritespage/FavoritesPage";
 
 const { store } = createStore();
 
@@ -24,6 +27,7 @@ function App() {
   return (
     <Provider store={store}>
       <HashRouter>
+        <FavoriteWrapper />
         <PopupWrapper />
         <Routes>
           <Route path={HOMEPAGE_ROUTE} element={<HomePage />} />
@@ -31,6 +35,7 @@ function App() {
             <Route path={DETAILS_PAGE_ROUTE} element={<DetailsPage />} />
           )}
           <Route path={CATEGORY_PAGE_ROUTE} element={<CategoryPage />} />
+          <Route path={FAVORITES_PAGE_ROUTE} element={<FavoritesPage />} />
         </Routes>
       </HashRouter>
     </Provider>

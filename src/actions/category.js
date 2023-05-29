@@ -7,6 +7,6 @@ export const categoryAction = (title) => async (dispatch) => {
   const response = await request.json();
   dispatch({
     type: GET_CATEGORY_ACTION,
-    payload: { drinks: response.drinks, title: title },
+    payload: { drinks: response.drinks ?? [], title: title },
   });
 };

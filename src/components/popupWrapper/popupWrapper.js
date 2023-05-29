@@ -13,14 +13,6 @@ export function PopupWrapper() {
   const mobile = isMobile();
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    const favorites = getFavorite();
-    dispatch({
-      type: "SET_FAVORITES",
-      payload: { favorites: favorites },
-    });
-  }, []);
-
   return (
     <>
       <Search open={open === POPUP_NAME.SEARCH} />
