@@ -6,7 +6,7 @@ import {
 } from "../actions/favoriteaction";
 import { TOGGLE_POPUP } from "../actions/popup";
 import { CLEAR_SEARCH, SEARCH_ACTION_TYPE } from "../actions/search";
-import { ADD_FAVORITE, SET_FAVORITES } from "../constants";
+import { ADD_FAVORITE } from "../constants";
 import { getInstructions } from "../utils/helpers";
 import { getIngredients } from "../utils/helpers";
 

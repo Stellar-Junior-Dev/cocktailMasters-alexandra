@@ -11,7 +11,6 @@ import {
   getAllFavorites,
   getFavoritesById,
 } from "../../actions/favoriteaction";
-import { SET_FAVORITES } from "../../constants";
 
 export function FavoriteWrapper() {
   const dispatch = useDispatch();
